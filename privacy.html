@@ -59,7 +59,7 @@
 <main>
   <header>
     <h1>Aura Privacy Policy</h1>
-    <p class="muted"><strong>Last updated:</strong> 2026-07-02 &nbsp;·&nbsp; <strong>Effective:</strong> same as above</p>
+    <p class="muted"><strong>Last updated:</strong> 2026-09-11 &nbsp;·&nbsp; <strong>Effective:</strong> same as above</p>
   </header>
 
   <p>Aura (“the app”) is a music playback client for Subsonic-API-compatible servers (Navidrome, Airsonic, Gonic, and others) that <strong>you</strong> host or have legitimate access to. This policy explains what information Aura handles and what it does not.</p>
@@ -70,7 +70,7 @@
       <li>Aura collects <strong>no</strong> personal data.</li>
       <li>Aura sends <strong>nothing</strong> to any server owned by the developer.</li>
       <li>All data (server URLs, credentials, playback state, cached audio) stays on your device.</li>
-      <li>The only network traffic Aura makes is to the servers you explicitly configure (your Subsonic/Navidrome server, and optionally LRCLIB for community lyrics).</li>
+      <li>Aura talks to the servers you configure. To find lyrics, share links and song credits, it also looks up a track&#8217;s name on a few public services, listed below &#8212; never on a server run by the developer.</li>
     </ul>
   </div>
 
@@ -87,7 +87,7 @@
   <ul>
     <li>Server URL(s) and usernames</li>
     <li>UI preferences (theme, accent color, home dashboard layout, etc.)</li>
-    <li>Playback preferences (EQ curve, crossfade, transcoding)</li>
+    <li>Playback preferences (EQ curve, ReplayGain, transcoding)</li>
     <li>Last-played state (queue, current track, position)</li>
     <li>Download quality settings</li>
   </ul>
@@ -111,16 +111,16 @@
   <p>These go <strong>only</strong> to the server URL(s) you explicitly configure in Settings. Aura does not bypass this or contact any other endpoint on your behalf.</p>
 
   <h3>To LRCLIB (optional, on-demand)</h3>
-  <p>Song metadata (artist, title, album, duration) used solely to look up community-contributed time-synced lyrics. <a href="https://lrclib.net">LRCLIB</a> is a public free service. Aura queries it only when your own server does not provide lyrics. Can be disabled in Settings.</p>
+  <p>Song metadata (artist, title, album, duration) used solely to look up community-contributed time-synced lyrics. <a href="https://lrclib.net">LRCLIB</a> is a public free service. Aura queries it only when your own server does not provide lyrics.</p>
 
   <h3>To streaming-link services (for the song share sheet)</h3>
   <p>So that the Share sheet can offer “open on Spotify / Apple Music / Deezer / YouTube Music” links, Aura looks up the currently playing track on other platforms. The track's <strong>artist and title</strong>, plus your device's <strong>country/region code</strong>, are sent to these public, free, keyless APIs:</p>
   <ul>
     <li><strong>Apple iTunes Search API</strong> — <code>itunes.apple.com</code></li>
     <li><strong>Deezer API</strong> — <code>api.deezer.com</code></li>
-    <li><strong>Odesli / song.link</strong> — <code>song.link</code></li>
   </ul>
-  <p>This lookup runs when a song starts playing (so the links are ready instantly) and the result is cached. No account, device identifier, or audio is sent — only the track name to find matching links — and none of it goes to a developer-owned server.</p>
+  <p>The share sheet can also offer a song.link address, which Aura builds from the Apple track ID it found; Aura does not contact song.link itself.</p>
+  <p>This lookup runs when a track appears in Now Playing (so the links are ready instantly) and the result is cached. No account, device identifier, or audio is sent — only the track name to find matching links — and none of it goes to a developer-owned server.</p>
 
   <h3>To MusicBrainz (for song credits)</h3>
   <p>When you open a song's credits/info, Aura queries the public <strong>MusicBrainz</strong> database (<code>musicbrainz.org</code>) with the artist and title to fetch writer/producer/label credits. No account or identifier is sent.</p>
