@@ -6,11 +6,27 @@
 <title>Aura · Music for Navidrome &amp; Subsonic</title>
 <meta name="description" content="A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free and open source.">
 <meta name="theme-color" content="#0e0b0b">
+<link rel="canonical" href="https://getauraios.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aura">
+<meta property="og:title" content="Aura · Music for Navidrome &amp; Subsonic">
+<meta property="og:description" content="A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free and open source.">
+<meta property="og:url" content="https://getauraios.vercel.app/">
+<meta property="og:image" content="https://getauraios.vercel.app/assets/img/aura-og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Aura app icon, a red play triangle on white, beside the word Aura on a dark background">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aura · Music for Navidrome &amp; Subsonic">
+<meta name="twitter:description" content="A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free and open source.">
+<meta name="twitter:image" content="https://getauraios.vercel.app/assets/img/aura-og.png">
+<meta name="twitter:image:alt" content="The Aura app icon, a red play triangle on white, beside the word Aura on a dark background">
 <link rel="icon" href="assets/img/aura-icon-64.png">
 <link rel="preload" href="assets/fonts/Vavin-Italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ArchivoXCondBlack.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
-<script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.auraReady)document.documentElement.classList.remove("js")},3000)</script>
+<script>if("scrollRestoration"in history)history.scrollRestoration="manual";document.documentElement.classList.add("js");setTimeout(function(){if(!window.auraReady)document.documentElement.classList.remove("js")},3000)</script>
 </head>
 <body>
 
@@ -39,7 +55,7 @@
   </div>
 </header>
 
-<main id="top">
+<main>
 
   <section class="wrap hero">
     <img class="hero-icon reveal" src="assets/img/aura-icon-240.png" alt="Aura app icon: a soft red play triangle on white" width="112" height="112">
@@ -258,16 +274,16 @@
   <section class="wrap section getit" id="get-it" aria-labelledby="getit-title">
     <div class="getit-grid">
       <div class="getit-copy">
-        <p class="eyebrow reveal">The sideload build</p>
-        <h2 class="h2 reveal" id="getit-title"><span class="line">Like the preview?</span><span class="line">Get It.</span></h2>
-        <p class="section-lead reveal d1">Run slskd next to your server, and the sideload build fetches what the Radar found and your library is missing.</p>
+        <p class="eyebrow reveal">Sideload build only</p>
+        <h2 class="h2 reveal" id="getit-title"><span class="line">Download what</span><span class="line">the Radar finds.</span></h2>
+        <p class="section-lead reveal d1">The sideload build works with slskd, a Soulseek client you run next to your server. When a release or a song isn’t in your library, Get It downloads it and your server adds it.</p>
         <ul class="getit-points reveal d1">
-          <li><b>One tap.</b> Get It on a Radar release, on a result in Search, or with the heart on a preview in Now Playing. A release’s page gets each song on its own, too.</li>
-          <li><b>The best copy.</b> Aura picks the one with the most of the release’s tracks, in the best quality, from a peer with a free slot, and moves on if a download stalls.</li>
-          <li><b>Every step in view.</b> A card above the mini player and a Live Activity follow it from looking to ready, with a countdown that learns how long your server takes.</li>
-          <li><b>No seam.</b> Listening to the preview when it lands? The song takes over at the very point the preview had reached.</li>
+          <li>Get It is on Radar releases, on Deezer results in Search, and on the heart while a preview plays in Now Playing. On a release’s page you can pick single songs.</li>
+          <li>Aura chooses the copy with the most of the release’s tracks, in the best quality available, from a peer that can start now. If a download stalls, it tries another.</li>
+          <li>Progress shows in a card above the mini player and in a Live Activity. The time estimate comes from how long your server took to import the last few releases.</li>
+          <li>If you’re still listening to the preview when the song arrives, playback switches to the full track at the same point.</li>
         </ul>
-        <p class="getit-fine reveal d2">Needs your own slskd server. Not part of the App Store build. Only download music you have the right to.</p>
+        <p class="getit-fine reveal d2">Needs your own slskd server. Not in the App Store version. Only download music you have the right to.</p>
       </div>
 
       <figure class="getit-stage reveal d1" role="img" aria-label="Aura’s Get It card above the mini player, following a release from looking on Soulseek to downloading, adding it to the library, and ready to play">
@@ -324,24 +340,21 @@
     <div class="wrap lyrics-head">
       <h2 class="h2 reveal" id="lyrics-title"><span class="line">Every word,</span><span class="line">as it’s sung.</span></h2>
       <div class="reveal d1">
-        <p class="section-lead">Word by word when your server has the timing, line by line when it doesn’t, LRCLIB for the rest. For a duet or a remix, Aura checks the words match the version playing, and Radar previews show their lyrics too. A tap puts them in your language, translated on the iPhone.</p>
-        <p class="lyrics-hint"><b>Scroll to sing along.</b> Tap a line to jump to it, or Translate to read along in French.</p>
+        <p class="section-lead">Word by word when your server has the timing, line by line when it doesn’t, LRCLIB for the rest. For a duet or a remix, Aura checks the words match the version playing, and Radar previews show their lyrics too. Add your own free Gemini key, and a tap puts a translation in your language under each line.</p>
+        <p class="lyrics-hint">Scroll to sing along, or tap a line to jump to it.</p>
       </div>
     </div>
     <div class="lyrics-track" id="lyrics-track">
       <div class="lyrics-stage">
-        <button class="tr-toggle" id="tr-toggle" type="button" aria-pressed="false">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><text x="1" y="12" font-size="11.5" font-weight="600">文</text><text x="11.5" y="22" font-size="12.5" font-weight="700">A</text></svg>Translate
-        </button>
         <ol class="wrap lyrics-lines" id="lyrics-lines">
-          <li><button class="lyric-line" type="button"><span class="sung">A server hums somewhere in the house.</span><span class="tr" lang="fr">Un serveur ronronne quelque part dans la maison.</span></button></li>
-          <li><button class="lyric-line" type="button"><span class="sung">Every record you own is on it.</span><span class="tr" lang="fr">Chaque disque que tu possèdes est dessus.</span></button></li>
-          <li><button class="lyric-line" type="button"><span class="sung">Each word lights up as it is sung,</span><span class="tr" lang="fr">Chaque mot s’allume quand il est chanté,</span></button></li>
-          <li><button class="lyric-line" type="button"><span class="sung">the lines around it fall back and wait.</span><span class="tr" lang="fr">les lignes autour s’effacent et attendent.</span></button></li>
-          <li><button class="lyric-line" type="button"><span class="sung">Tap any line and the song jumps there.</span><span class="tr" lang="fr">Touche une ligne, la chanson y saute.</span></button></li>
-          <li><button class="lyric-line" type="button"><span class="sung">No feed to scroll. No ads between tracks.</span><span class="tr" lang="fr">Pas de fil à faire défiler. Pas de pub entre les morceaux.</span></button></li>
-          <li><button class="lyric-line" type="button"><span class="sung">Just your library,</span><span class="tr" lang="fr">Juste ta bibliothèque,</span></button></li>
-          <li><button class="lyric-line" type="button"><span class="sung">playing.</span><span class="tr" lang="fr">qui joue.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">A server hums somewhere in the house.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">Every record you own is on it.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">Each word lights up as it is sung,</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">the lines around it fall back and wait.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">Tap any line and the song jumps there.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">No feed to scroll. No ads between tracks.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">Just your library,</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">playing.</span></button></li>
         </ol>
       </div>
     </div>

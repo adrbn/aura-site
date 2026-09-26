@@ -74,7 +74,7 @@
 @media (max-width: 700px)  { :root { --page-gutter: 16px; } }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { overflow-x: clip; scroll-padding-top: 80px; color-scheme: dark; }
+html { overflow-x: clip; scroll-padding-top: calc(80px + env(safe-area-inset-top, 0px)); color-scheme: dark; }
 body {
   margin: 0;
   background: var(--bg);
@@ -97,8 +97,11 @@ button { font: inherit; color: inherit; }
 .emph { font-family: var(--font-emph); font-style: italic; font-weight: 400; letter-spacing: 0; padding-right: .04em; }
 
 /* ---------- nav ---------- */
+/* dans le flux de la page : en haut, le héros commence sous la barre. Avec viewport-fit=cover,
+   la barre ajoute la zone sûre du haut, si Safari pose la page sous la barre d'état. */
 .nav {
   position: sticky; top: 0; z-index: 50;
+  padding-top: env(safe-area-inset-top, 0px);
   background: color-mix(in srgb, var(--bg) 78%, transparent);
   -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);
   transition: background .25s, color .25s;
@@ -383,7 +386,6 @@ button { font: inherit; color: inherit; }
 .eyebrow { margin: 0 0 16px; color: var(--accent); font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
 .getit-points { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 14px; }
 .getit-points li { max-width: 32em; color: var(--ink-2); font-size: 17px; line-height: 1.45; }
-.getit-points b { color: var(--ink); font-weight: 600; }
 .getit-fine { margin: 26px 0 0; max-width: 32em; color: var(--ink-2); font-size: 14px; line-height: 1.45; }
 
 .getit-stage { position: relative; margin: 0; min-height: 420px; aspect-ratio: 492 / 540; border-radius: var(--r-card); overflow: hidden; background: var(--app-bg); }
@@ -449,21 +451,11 @@ button { font: inherit; color: inherit; }
 }
 .lyric-line .w { transition: color .25s ease-out; }
 .lyric-line .sung { display: block; }
-.lyric-line .tr { display: none; margin-top: .28em; font-size: .44em; font-weight: 600; line-height: 1.2; letter-spacing: 0; color: rgb(248 242 242 / .6); }
-.lyrics.is-translated .lyric-line .tr { display: block; animation: tr-in .5s var(--ease-out); }
-@keyframes tr-in { from { opacity: 0; transform: translateY(-.3em); } }
-.tr-toggle { display: none; }
-.js .tr-toggle {
-  position: absolute; z-index: 2; right: calc((100% - var(--site-width)) / 2); bottom: 32px;
-  display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px 10px 12px; border: 0; border-radius: 999px; cursor: pointer;
-  background: rgb(248 242 242 / .1); color: rgb(248 242 242 / .7); font: inherit; font-size: 15px; font-weight: 600;
-  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); transition: background .25s, color .25s;
-}
-.js .tr-toggle svg { width: 22px; height: 22px; fill: currentColor; font-family: -apple-system, system-ui, sans-serif; }
-.js .tr-toggle:hover { color: var(--ink); }
-.js .tr-toggle[aria-pressed="true"] { background: rgb(248 242 242 / .22); color: var(--ink); }
 .js .lyrics-track { height: calc(var(--lines, 8) * 42vh + 100vh); }
-.js .lyrics-stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; display: flex; align-items: flex-start; }
+/* dvh, not svh: svh is the height with Safari's bars out, so with them tucked away the
+   stage stopped short of the screen — the line being sung sat above the middle, over a
+   band of empty black. dvh follows the bars; the script re-centres when it changes. */
+.js .lyrics-stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; display: flex; align-items: flex-start; }
 .js .lyrics-lines { padding: 0; transform: translateY(var(--shift, 0px)); transition: transform .6s var(--ease-out); }
 .js .lyric-line {
   --d: 3;
@@ -477,7 +469,6 @@ button { font: inherit; color: inherit; }
 .js .lyric-line.is-current .w.lit { color: var(--ink); }
 .lyric-line:hover .w { color: var(--ink); }
 .lyrics-hint { margin: 14px 0 0; color: var(--ink-2); font-size: 15px; font-weight: 500; }
-.lyrics-hint b { color: var(--ink); font-weight: 600; }
 @media (max-width: 900px) { .lyrics-head { grid-template-columns: 1fr; } }
 @media (max-width: 700px) { .lyrics { margin-top: 110px; padding-top: 96px; } .js .lyrics-track { height: calc(var(--lines, 8) * 34vh + 100vh); } }
 
@@ -569,7 +560,7 @@ button { font: inherit; color: inherit; }
   .js .lyric-line { filter: none; transform: none; }
   .js .wordmark { transition: none; background-position: 0 0; }
   .sheet[open] { animation: none; }
-  .ring, .bars i, .marquee-track, .gi-card[data-stage="ready"] .gi-play, .lyrics.is-translated .lyric-line .tr { animation: none; }
+  .ring, .bars i, .marquee-track, .gi-card[data-stage="ready"] .gi-play { animation: none; }
   .bars i:nth-child(1) { transform: scaleY(.55); }
   .bars i:nth-child(3) { transform: scaleY(.75); }
   .eq-dot, .gi-card, .gi-steps i::after { transition: none; }

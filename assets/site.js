@@ -319,6 +319,8 @@
   };
 
   let currentLine = -1;
+  // Centre la ligne chantée en décalant la liste (transform) dans sa scène : rien ne défile,
+  // ni la scène ni la page. Jamais de scrollIntoView ici : il ferait défiler la fenêtre aussi.
   const centerLine = (index) => {
     const line = lines[index];
     const lineRect = line.getBoundingClientRect();
@@ -343,16 +345,6 @@
       centerLine(index);
     }
   };
-
-  // la traduction sous chaque ligne, comme le bouton de l'app
-  const translate = document.getElementById("tr-toggle");
-  translate?.addEventListener("click", () => {
-    const on = translate.getAttribute("aria-pressed") !== "true";
-    translate.setAttribute("aria-pressed", String(on));
-    track.closest(".lyrics").classList.toggle("is-translated", on);
-    currentLine = -1;
-    syncLyrics();
-  });
 
   lines.forEach((line, i) => {
     line.addEventListener("click", () => {
@@ -387,9 +379,13 @@
     });
   };
   addEventListener("scroll", onScroll, { passive: true });
-  addEventListener("resize", () => {
+  // La scène suit la hauteur visible (barres de Safari rentrées ou sorties) : on recentre la
+  // ligne au prochain rendu. Seulement un style — la position de la page n'est jamais touchée.
+  const onResize = () => {
     currentLine = -1;
     onScroll();
-  });
+  };
+  addEventListener("resize", onResize);
+  window.visualViewport?.addEventListener("resize", onResize);
   onScroll();
 })();
