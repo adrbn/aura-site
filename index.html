@@ -4,14 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aura · Music for Navidrome &amp; Subsonic</title>
-<meta name="description" content="A native SwiftUI music player for Navidrome and Subsonic servers. Lossless playback, synced lyrics, a 5-band EQ and a full offline mode. Free and open source.">
+<meta name="description" content="A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free and open source.">
 <meta name="theme-color" content="#0e0b0b">
 <link rel="icon" href="assets/img/aura-icon-64.png">
 <link rel="preload" href="assets/fonts/Vavin-Italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ArchivoXCondBlack.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.auraReady)document.documentElement.classList.remove("js")},3000)</script>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- le triangle de l'icône, coins arrondis : la marque des pochettes -->
+    <symbol id="play-mark" viewBox="0 0 23 26"><path d="M0 3.5Q0 0 3.05 1.72L19.95 11.28Q23 13 19.95 14.72L3.05 24.28Q0 26 0 22.5Z"/></symbol>
+    <!-- une silhouette, là où l'app pose une photo d'artiste -->
+    <symbol id="figure" viewBox="0 0 100 100"><circle cx="50" cy="39" r="17"/><path d="M13 104C13 76 29 63 50 63S87 76 87 104Z"/></symbol>
+    <symbol id="i-held" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="m7.2 12.3 3.1 3.1 6.5-6.8" fill="none" stroke="var(--on-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-get" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v9.2m-3.8-3.8L12 16.2l3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
@@ -35,7 +47,7 @@
       <span class="line"><span class="w">The</span> <span class="w">polish</span> <span class="w">of</span> <span class="w">Apple</span> <span class="w">Music.</span></span>
       <span class="line is-next"><span class="w">For</span> <span class="w">the</span> <span class="w">library</span> <span class="w emph">you</span> <span class="w">host.</span></span>
     </h1>
-    <p class="lead reveal d1">A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, fully offline. Free and open source.</p>
+    <p class="lead reveal d1">A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free and open source.</p>
     <div class="actions reveal d2">
       <a class="btn btn-primary" href="https://github.com/adrbn/aura/releases" data-install>
         <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 1.5v8M3.5 6 7 9.5 10.5 6M1.5 12.5h11"/></svg>Get the IPA
@@ -46,10 +58,10 @@
     </div>
     <p class="fineprint reveal d2">Free · iOS 26 or later · App Store coming soon</p>
 
-    <div class="stage reveal">
-      <figure class="phone side" style="margin:0"><div class="screen shot" data-label="Screenshot · Home&#10;assets/shots/home.webp"><img src="assets/shots/home.webp" alt="Aura home screen: server name, library counts, Made For You mixes and favourite artists" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
-      <figure class="phone" style="margin:0"><div class="screen shot" data-label="Screenshot · Now Playing&#10;assets/shots/now-playing.webp"><img src="assets/shots/now-playing.webp" alt="Aura Now Playing screen: album art, scrubber and playback controls" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
-      <figure class="phone side" style="margin:0"><div class="screen shot" data-label="Screenshot · Playlists&#10;assets/shots/playlists.webp"><img src="assets/shots/playlists.webp" alt="Aura playlists grid with custom photo covers" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
+    <div class="stage reveal d3">
+      <figure class="phone side"><div class="screen shot" data-label="Screenshot · Home&#10;assets/shots/home.webp"><img src="assets/shots/home.webp" width="660" height="1435" alt="Aura’s Home: the server’s name as the title, the library’s counts, Made For You mixes with editorial covers, favourite artists and songs, and the mini player above the tab bar" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
+      <figure class="phone"><div class="screen shot" data-label="Screenshot · Now Playing&#10;assets/shots/now-playing.webp"><img src="assets/shots/now-playing.webp" width="660" height="1435" alt="Aura’s Now Playing on a background drawn from the cover: the artwork, title and artist, a favourite heart, the scrubber, playback controls, and buttons for lyrics, Instant Mix, the queue, the sleep timer, the output and sharing" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
+      <figure class="phone side"><div class="screen shot" data-label="Screenshot · Radio&#10;assets/shots/radio.webp"><img src="assets/shots/radio.webp" width="660" height="1435" alt="A radio in Aura: its cover shows the seed artist in a disc sending out rings, with Play, Shuffle and Save as Playlist above the radio’s songs" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
     </div>
   </section>
 
@@ -60,49 +72,251 @@
       <div class="bento-left">
         <div class="card card-trio reveal">
           <div class="trio-item"><b>Lossless</b><span>Keep FLAC and ALAC, or stream at 128 to 320 kbps.</span></div>
-          <div class="trio-item"><b>Gapless</b><span>With a crossfade from 0 to 12 seconds.</span></div>
+          <div class="trio-item"><b>Every format</b><span>OGG, Opus and WMA play too, converted by your server.</span></div>
           <div class="trio-item"><b>Offline</b><span>Download anything. What you stream caches itself.</span></div>
         </div>
-        <div class="card card-copy card-top reveal d1">
-          <h3 class="card-title">Instant Mix</h3>
-          <p class="card-body">Start a radio from any song or artist. When the queue runs dry, autoplay keeps going. Save any mix as a real playlist on your server.</p>
+
+        <div class="card card-radio reveal d1">
+          <div class="card-copy">
+            <h3 class="card-title">Instant Mix</h3>
+            <p class="card-body">Start a radio from any song or artist. When the queue runs dry, autoplay keeps going. Save it as a playlist on your server, and its cover goes with it.</p>
+          </div>
+          <div class="cover cover-radio" role="img" aria-label="A radio cover drawn the way Aura draws one: the seed artist in a disc sending out rings, two similar artists beside it, the name in a black band and the similar artists on a strip beneath" data-loop>
+            <div class="cv" aria-hidden="true">
+              <svg class="rings" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <circle class="ring" cx="50" cy="40" r="100"/><circle class="ring" cx="50" cy="40" r="100"/><circle class="ring" cx="50" cy="40" r="100"/><circle class="ring" cx="50" cy="40" r="100"/><circle class="ring" cx="50" cy="40" r="100"/><circle class="ring" cx="50" cy="40" r="100"/>
+              </svg>
+              <span class="disc disc-left"><svg><use href="#figure"/></svg></span>
+              <span class="disc disc-right"><svg><use href="#figure"/></svg></span>
+              <span class="disc disc-lead"><svg><use href="#figure"/></svg></span>
+              <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Radio</span></span>
+              <span class="cv-foot">
+                <span class="cap title-band">Oda Renn</span>
+                <span class="cap strip">Tessel · Olan Brisk</span>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <figure class="card card-media reveal" style="margin:0">
-        <div class="shot" data-label="Screenshot · Equalizer&#10;assets/shots/eq.webp"><img src="assets/shots/eq.webp" alt="Aura equalizer: five bands from 60 Hz to 14 kHz with the Electronic preset" onerror="this.parentElement.classList.add('is-empty')"></div>
-        <div class="scrim"></div>
-        <figcaption class="over-media">
-          <p class="card-title">A real equalizer.</p>
-          <p class="card-body">Five bands, fifteen presets, your own curves. Replay gain included.</p>
-        </figcaption>
-      </figure>
+      <div class="card card-eq reveal">
+        <div class="eq-copy">
+          <h3 class="card-title">A real equalizer.</h3>
+          <p class="card-body">Five bands, fifteen presets, your own curves, and ReplayGain. Drag a point, or pick a preset.</p>
+        </div>
+        <div class="eq" id="eq" data-gains="10,6,0,4,8">
+          <svg class="eq-svg" viewBox="0 0 400 292" role="group" aria-label="Equalizer curve, five bands">
+            <defs><linearGradient id="eq-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="eq-fill-top"/><stop offset="1" class="eq-fill-bottom"/></linearGradient></defs>
+            <g class="eq-grid" aria-hidden="true"><line class="eq-rule" x1="34" y1="278" x2="400" y2="278"/><line class="eq-rule" x1="34" y1="212" x2="400" y2="212"/><line class="eq-zero" x1="34" y1="146" x2="400" y2="146"/><line class="eq-rule" x1="34" y1="80" x2="400" y2="80"/><line class="eq-rule" x1="34" y1="14" x2="400" y2="14"/><text x="26" y="14">+12</text><text x="26" y="146">0</text><text x="26" y="278">−12</text></g>
+            <path class="eq-area" d="M34 36L56 36C69.42 43.33 109.67 61.67 136.5 80C163.33 98.33 190.17 142.33 217 146C243.83 149.67 270.67 116.67 297.5 102C324.33 87.33 364.58 65.33 378 58L400 58L400 292L34 292Z"/>
+            <path class="eq-line" d="M34 36L56 36C69.42 43.33 109.67 61.67 136.5 80C163.33 98.33 190.17 142.33 217 146C243.83 149.67 270.67 116.67 297.5 102C324.33 87.33 364.58 65.33 378 58L400 58"/>
+            <g class="eq-node" role="slider" aria-orientation="vertical" aria-label="60 Hz" aria-valuemin="-12" aria-valuemax="12" aria-valuenow="10" aria-valuetext="+10 dB" transform="translate(56 36)"><circle class="eq-halo" r="15"/><circle class="eq-dot" r="6.5"/></g>
+            <g class="eq-node" role="slider" aria-orientation="vertical" aria-label="230 Hz" aria-valuemin="-12" aria-valuemax="12" aria-valuenow="6" aria-valuetext="+6 dB" transform="translate(136.5 80)"><circle class="eq-halo" r="15"/><circle class="eq-dot" r="6.5"/></g>
+            <g class="eq-node" role="slider" aria-orientation="vertical" aria-label="910 Hz" aria-valuemin="-12" aria-valuemax="12" aria-valuenow="0" aria-valuetext="0 dB" transform="translate(217 146)"><circle class="eq-halo" r="15"/><circle class="eq-dot" r="6.5"/></g>
+            <g class="eq-node" role="slider" aria-orientation="vertical" aria-label="3.6 kHz" aria-valuemin="-12" aria-valuemax="12" aria-valuenow="4" aria-valuetext="+4 dB" transform="translate(297.5 102)"><circle class="eq-halo" r="15"/><circle class="eq-dot" r="6.5"/></g>
+            <g class="eq-node" role="slider" aria-orientation="vertical" aria-label="14 kHz" aria-valuemin="-12" aria-valuemax="12" aria-valuenow="8" aria-valuetext="+8 dB" transform="translate(378 58)"><circle class="eq-halo" r="15"/><circle class="eq-dot" r="6.5"/></g>
+          </svg>
+          <ol class="eq-readout" aria-hidden="true">
+            <li style="--x: 14%"><b>+10 dB</b><span>60 Hz</span></li>
+            <li style="--x: 34.13%"><b>+6 dB</b><span>230 Hz</span></li>
+            <li class="is-zero" style="--x: 54.25%"><b>0 dB</b><span>910 Hz</span></li>
+            <li style="--x: 74.38%"><b>+4 dB</b><span>3.6k Hz</span></li>
+            <li style="--x: 94.5%"><b>+8 dB</b><span>14k Hz</span></li>
+          </ol>
+          <div class="eq-presets" role="group" aria-label="Presets">
+            <button class="chip" type="button" aria-pressed="false" data-gains="0,0,0,0,0">Flat</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="10,7,0,-1,-2">Bass Boost</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="-2,-1,0,7,10">Treble Boost</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="-4,0,8,6,2">Vocal</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="8,4,-2,6,8">Rock</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="-2,4,8,4,-2">Pop</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="6,2,-2,2,6">Jazz</button>
+            <button class="chip" type="button" aria-pressed="true" data-gains="10,6,0,4,8">Electronic</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="6,2,0,2,6">Classical</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="10,8,2,0,4">Hip-Hop</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="6,10,4,-2,2">R&amp;B</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="4,2,0,4,4">Acoustic</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="6,4,2,0,-2">Late Night</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="8,4,-4,4,2">Loudness</button>
+            <button class="chip" type="button" aria-pressed="false" data-gains="10,8,4,2,4">Small Speakers</button>
+          </div>
+        </div>
+      </div>
 
-      <figure class="card card-wide-media reveal" style="margin:0">
-        <div class="shot shot-settings" data-label="Screenshot · Settings&#10;assets/shots/settings.webp"><img src="assets/shots/settings.webp" alt="Aura settings: word-by-word lyric highlight, lyric timing offset, transcode quality, scrobbling, gapless playback, crossfade" onerror="this.parentElement.classList.add('is-empty')"></div>
-        <div class="scrim"></div>
-        <figcaption class="over-media">
-          <p class="card-title">Tuned your way.</p>
-          <p class="card-body">Lyric timing, transcoding, gapless, crossfade, scrobbling.</p>
-        </figcaption>
-      </figure>
+      <div class="card card-radar reveal" data-loop>
+        <h3 class="card-title">Radar</h3>
+        <p class="card-body">This month’s releases from the artists you play most, newest first. What your server has plays whole; the rest plays as thirty-second previews, lyrics and all.</p>
+        <ol class="rrows">
+          <li class="rrow is-current">
+            <span class="thumb t1"></span>
+            <span class="rrow-text"><b><span class="bars" role="img" aria-label="Playing its preview"><i></i><i></i><i></i></span>Glasshouse Summer</b><span class="rrow-meta">Juno Farrow · Album · Sep 25</span></span>
+            <svg class="rrow-mark is-get" role="img" aria-label="Not on your server"><use href="#i-get"/></svg>
+          </li>
+          <li class="rrow">
+            <span class="thumb t2"></span>
+            <span class="rrow-text"><b>Night Ferry</b><span class="rrow-meta">Tessel · Single · Sep 22</span></span>
+            <svg class="rrow-mark is-held" role="img" aria-label="On your server"><use href="#i-held"/></svg>
+          </li>
+          <li class="rrow">
+            <span class="thumb t3"></span>
+            <span class="rrow-text"><b>Paper Satellites</b><span class="rrow-meta">Loma Vey · Album · Sep 19 · 3 to get</span></span>
+            <svg class="rrow-mark is-get" role="img" aria-label="Partly on your server"><use href="#i-get"/></svg>
+          </li>
+          <li class="rrow">
+            <span class="thumb t4"></span>
+            <span class="rrow-text"><b>Slow Weather</b><span class="rrow-meta">Mireille Okafor · EP · Sep 12</span></span>
+            <svg class="rrow-mark is-held" role="img" aria-label="On your server"><use href="#i-held"/></svg>
+          </li>
+        </ol>
+        <p class="rrow-legend"><span><svg class="is-held" aria-hidden="true"><use href="#i-held"/></svg>On your server</span><span><svg class="is-get" aria-hidden="true"><use href="#i-get"/></svg>Missing: Get It, in the sideload build</span><span><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Playing a thirty-second preview</span></p>
+      </div>
 
-      <div class="card card-split reveal d1">
+      <div class="card card-mfy reveal d1">
         <div class="card-copy">
           <h3 class="card-title">Made For You</h3>
-          <p class="card-body">Time-of-day, mood and genre mixes built from your own library, with covers drawn for each one. Plus a Year Wrapped of your listening.</p>
+          <p class="card-body">Mixes by time of day, mood and genre, drawn from your own library, each with a cover designed the way a streaming service would. The Radar leads the row, and a Year Wrapped looks back on what you really played.</p>
         </div>
-        <div class="shot shot-strip" data-label="Screenshot · Made For You&#10;assets/shots/made-for-you.webp"><img src="assets/shots/made-for-you.webp" alt="Made For You row on Aura's home screen: Afternoon Mix, Chill Mix and Focus Mix covers" onerror="this.parentElement.classList.add('is-empty')"></div>
+        <div class="marquee" data-loop>
+          <ul class="marquee-track">
+            <li class="mfy-item">
+              <div class="cover cover-mix" style="--band: #F7E11B" aria-hidden="true"><div class="cv">
+                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">New Releases</span></span>
+                <span class="cv-foot"><span class="cap title-band">Radar</span><span class="cap strip">Juno Farrow · Tessel</span></span>
+              </div></div>
+              <b>Radar</b><span>New releases from your artists</span>
+            </li>
+            <li class="mfy-item">
+              <div class="cover cover-mix" style="--band: #FF7A1A" aria-hidden="true"><div class="cv">
+                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
+                <span class="cv-foot"><span class="cap title-band">Evening</span><span class="cap strip">Veda Lune · Olan Brisk · Tessel</span></span>
+              </div></div>
+              <b>Evening Mix</b><span>Wind down your evening</span>
+            </li>
+            <li class="mfy-item">
+              <div class="cover cover-mix" style="--band: #6FF0C4" aria-hidden="true"><div class="cv">
+                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
+                <span class="cv-foot"><span class="cap title-band">Chill</span><span class="cap strip">Kasimir Blue · Pale Marigold</span></span>
+              </div></div>
+              <b>Chill Mix</b><span>Calm, laid-back songs</span>
+            </li>
+            <li class="mfy-item">
+              <div class="cover cover-genre" style="--dark: #1A1150; --light: #FF6FB5" aria-hidden="true"><div class="cv">
+                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
+                <span class="cv-foot"><span class="cap word">Soul</span><span class="cap word">Jazz</span></span>
+              </div></div>
+              <b>Soul Jazz Mix</b><span>Your soul jazz favorites</span>
+            </li>
+            <li class="mfy-item">
+              <div class="cover cover-year" aria-hidden="true"><div class="cv">
+                <span class="cap period">2025</span>
+                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Wrapped</span></span>
+              </div></div>
+              <b>Your 2025 Wrapped</b><span>Your top songs, artists &amp; genres</span>
+            </li>
+            <!-- the same five again, so the loop joins without a gap; hidden from assistive tech -->
+            <li class="mfy-item is-copy" aria-hidden="true">
+              <div class="cover cover-mix" style="--band: #F7E11B" aria-hidden="true"><div class="cv">
+                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">New Releases</span></span>
+                <span class="cv-foot"><span class="cap title-band">Radar</span><span class="cap strip">Juno Farrow · Tessel</span></span>
+              </div></div>
+              <b>Radar</b><span>New releases from your artists</span>
+            </li>
+            <li class="mfy-item is-copy" aria-hidden="true">
+              <div class="cover cover-mix" style="--band: #FF7A1A" aria-hidden="true"><div class="cv">
+                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
+                <span class="cv-foot"><span class="cap title-band">Evening</span><span class="cap strip">Veda Lune · Olan Brisk · Tessel</span></span>
+              </div></div>
+              <b>Evening Mix</b><span>Wind down your evening</span>
+            </li>
+            <li class="mfy-item is-copy" aria-hidden="true">
+              <div class="cover cover-mix" style="--band: #6FF0C4" aria-hidden="true"><div class="cv">
+                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
+                <span class="cv-foot"><span class="cap title-band">Chill</span><span class="cap strip">Kasimir Blue · Pale Marigold</span></span>
+              </div></div>
+              <b>Chill Mix</b><span>Calm, laid-back songs</span>
+            </li>
+            <li class="mfy-item is-copy" aria-hidden="true">
+              <div class="cover cover-genre" style="--dark: #1A1150; --light: #FF6FB5" aria-hidden="true"><div class="cv">
+                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
+                <span class="cv-foot"><span class="cap word">Soul</span><span class="cap word">Jazz</span></span>
+              </div></div>
+              <b>Soul Jazz Mix</b><span>Your soul jazz favorites</span>
+            </li>
+            <li class="mfy-item is-copy" aria-hidden="true">
+              <div class="cover cover-year" aria-hidden="true"><div class="cv">
+                <span class="cap period">2025</span>
+                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Wrapped</span></span>
+              </div></div>
+              <b>Your 2025 Wrapped</b><span>Your top songs, artists &amp; genres</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+  </section>
 
+  <section class="wrap section getit" id="get-it" aria-labelledby="getit-title">
+    <div class="getit-grid">
+      <div class="getit-copy">
+        <p class="eyebrow reveal">The sideload build</p>
+        <h2 class="h2 reveal" id="getit-title"><span class="line">Like the preview?</span><span class="line">Get It.</span></h2>
+        <p class="section-lead reveal d1">Run slskd next to your server, and the sideload build fetches what the Radar found and your library is missing.</p>
+        <ul class="getit-points reveal d1">
+          <li><b>One tap.</b> Get It on a Radar release, on a result in Search, or with the heart on a preview in Now Playing. A release’s page gets each song on its own, too.</li>
+          <li><b>The best copy.</b> Aura picks the one with the most of the release’s tracks, in the best quality, from a peer with a free slot, and moves on if a download stalls.</li>
+          <li><b>Every step in view.</b> A card above the mini player and a Live Activity follow it from looking to ready, with a countdown that learns how long your server takes.</li>
+          <li><b>No seam.</b> Listening to the preview when it lands? The song takes over at the very point the preview had reached.</li>
+        </ul>
+        <p class="getit-fine reveal d2">Needs your own slskd server. Not part of the App Store build. Only download music you have the right to.</p>
+      </div>
+
+      <figure class="getit-stage reveal d1" role="img" aria-label="Aura’s Get It card above the mini player, following a release from looking on Soulseek to downloading, adding it to the library, and ready to play">
+        <div class="gi-screen" aria-hidden="true">
+          <ol class="rrows gi-rows">
+            <li class="rrow"><span class="thumb t2"></span><span class="rrow-text"><b>Night Ferry</b><span class="rrow-meta">Tessel · Single · Sep 22</span></span><svg class="rrow-mark is-held"><use href="#i-held"/></svg></li>
+            <li class="rrow"><span class="thumb t1"></span><span class="rrow-text"><b>Glasshouse Summer</b><span class="rrow-meta">Juno Farrow · Album · Sep 25</span></span><svg class="rrow-mark is-get"><use href="#i-get"/></svg></li>
+            <li class="rrow"><span class="thumb t3"></span><span class="rrow-text"><b>Paper Satellites</b><span class="rrow-meta">Loma Vey · Album · Sep 19 · 3 to get</span></span><svg class="rrow-mark is-get"><use href="#i-get"/></svg></li>
+            <li class="rrow"><span class="thumb t4"></span><span class="rrow-text"><b>Slow Weather</b><span class="rrow-meta">Mireille Okafor · EP · Sep 12</span></span><svg class="rrow-mark is-held"><use href="#i-held"/></svg></li>
+            <li class="rrow"><span class="thumb t5"></span><span class="rrow-text"><b>Low Sun, High Water</b><span class="rrow-meta">Veda Lune · Single · Sep 8</span></span><svg class="rrow-mark is-get"><use href="#i-get"/></svg></li>
+          </ol>
+          <div class="gi-veil"></div>
+          <div class="gi-dock">
+            <div class="gi-card" id="gi-card" data-stage="downloading">
+              <span class="thumb t1 gi-cover"></span>
+              <span class="gi-text">
+                <b class="gi-title">Glasshouse Summer</b>
+                <span class="gi-status">Downloading · FLAC · 3/12 tracks · 26%</span>
+                <span class="gi-steps"><i style="--f: 1"></i><i style="--f: .26"></i><i style="--f: 0"></i><i style="--f: 0"></i></span>
+              </span>
+              <span class="gi-play"><svg viewBox="0 0 14 16"><path d="M1 2.2v11.6a1.2 1.2 0 0 0 1.8 1l9.6-5.8a1.2 1.2 0 0 0 0-2L2.8 1.2A1.2 1.2 0 0 0 1 2.2Z"/></svg></span>
+            </div>
+            <div class="gi-mini">
+              <span class="thumb t1"></span>
+              <span class="gi-mini-text"><b>Lanterns</b><span>Juno Farrow</span></span>
+              <svg class="gi-glyph" viewBox="0 0 20 20"><rect x="4" y="3" width="4" height="14" rx="1.2"/><rect x="12" y="3" width="4" height="14" rx="1.2"/></svg>
+              <svg class="gi-glyph" viewBox="0 0 24 20"><path d="M1.5 3.6v12.8a1 1 0 0 0 1.5.86L12 11.4v5a1 1 0 0 0 1.5.86l9-6.4a1 1 0 0 0 0-1.72l-9-6.4A1 1 0 0 0 12 3.6v5L3 2.74a1 1 0 0 0-1.5.86Z"/></svg>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wrap section also-section" aria-labelledby="also-title">
+    <h2 class="h2 also-title reveal" id="also-title">And all the rest.</h2>
     <ul class="also reveal">
-      <li><b>Siri</b><span>Play, pause, skip, shuffle, repeat, favourite. “Play” a playlist or an album by name.</span></li>
-      <li><b>Search that forgives</b><span>Fuzzy, ranked by relevance, and it remembers what you actually played.</span></li>
+      <li><b>Siri, in two languages</b><span>Play, pause, skip, shuffle, repeat, favourite, or a playlist or album by name, with the app closed. “Play my favourites in Aura”, or «&nbsp;Joue mes favoris sur Aura&nbsp;».</span></li>
+      <li><b>In the car</b><span>CarPlay’s Now Playing, and shuffle and repeat buttons that work from the car stereo or a remote.</span></li>
+      <li><b>Lock Screen &amp; Island</b><span>Controls on the Lock Screen, in Control Center and in the Dynamic Island, with a Live Activity and AirPlay.</span></li>
+      <li><b>Search that forgives</b><span>Fuzzy, ranked so what you typed comes first, and it remembers what you played. With the Radar on, it also finds what your server doesn’t have yet.</span></li>
+      <li><b>Playlists, filtered</b><span>A grid of covers or a list, narrowed in a tap to the pinned ones, radios, mixes, yours, shared or downloaded.</span></li>
+      <li><b>A real queue</b><span>Play next, add to the end, drag to reorder. And a sleep timer that fades out rather than cutting.</span></li>
+      <li><b>Pages in colour</b><span>Albums, playlists, mixes and radios open in the colour of their artwork, and the tabs glow with what’s playing.</span></li>
+      <li><b>No blank covers</b><span>When your server has no artwork for an album, Aura finds the real cover in Deezer’s catalogue.</span></li>
+      <li><b>Your look</b><span>Light or dark, nine accent colours, tabs in the order you like, and the list density you want.</span></li>
+      <li><b>Nightstand clock</b><span>Switch it on, then turn the phone sideways at night: album art and the time.</span></li>
       <li><b>Several servers</b><span>Keep more than one profile and switch from the Home title.</span></li>
-      <li><b>Lock Screen &amp; Island</b><span>Controls on the Lock Screen, in Control Center and in the Dynamic Island.</span></li>
-      <li><b>Nightstand clock</b><span>Turn the phone sideways at night: album art and the time.</span></li>
-      <li><b>Your look</b><span>Light or dark, pure-black OLED, accent colors, reorderable tabs.</span></li>
+      <li><b>Share links</b><span>Send a song as links that open it on other services, found through Apple’s and Deezer’s public search.</span></li>
     </ul>
   </section>
 
@@ -110,21 +324,24 @@
     <div class="wrap lyrics-head">
       <h2 class="h2 reveal" id="lyrics-title"><span class="line">Every word,</span><span class="line">as it’s sung.</span></h2>
       <div class="reveal d1">
-        <p class="section-lead">Word-by-word highlight when your server has the timing, line by line when it doesn’t, LRCLIB for the rest. The lines around the one being sung step back in size, blur and brightness.</p>
-        <p class="lyrics-hint"><b>Scroll to sing along.</b> Tap a line to jump to it, as you would in the app.</p>
+        <p class="section-lead">Word by word when your server has the timing, line by line when it doesn’t, LRCLIB for the rest. For a duet or a remix, Aura checks the words match the version playing, and Radar previews show their lyrics too. A tap puts them in your language, translated on the iPhone.</p>
+        <p class="lyrics-hint"><b>Scroll to sing along.</b> Tap a line to jump to it, or Translate to read along in French.</p>
       </div>
     </div>
     <div class="lyrics-track" id="lyrics-track">
       <div class="lyrics-stage">
+        <button class="tr-toggle" id="tr-toggle" type="button" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><text x="1" y="12" font-size="11.5" font-weight="600">文</text><text x="11.5" y="22" font-size="12.5" font-weight="700">A</text></svg>Translate
+        </button>
         <ol class="wrap lyrics-lines" id="lyrics-lines">
-          <li><button class="lyric-line" type="button">A server hums somewhere in the house.</button></li>
-          <li><button class="lyric-line" type="button">Every record you own is on it.</button></li>
-          <li><button class="lyric-line" type="button">Each word lights up as it is sung,</button></li>
-          <li><button class="lyric-line" type="button">the lines around it fall back and wait.</button></li>
-          <li><button class="lyric-line" type="button">Tap any line and the song jumps there.</button></li>
-          <li><button class="lyric-line" type="button">No feed to scroll. No ads between tracks.</button></li>
-          <li><button class="lyric-line" type="button">Just your library,</button></li>
-          <li><button class="lyric-line" type="button">playing.</button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">A server hums somewhere in the house.</span><span class="tr" lang="fr">Un serveur ronronne quelque part dans la maison.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">Every record you own is on it.</span><span class="tr" lang="fr">Chaque disque que tu possèdes est dessus.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">Each word lights up as it is sung,</span><span class="tr" lang="fr">Chaque mot s’allume quand il est chanté,</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">the lines around it fall back and wait.</span><span class="tr" lang="fr">les lignes autour s’effacent et attendent.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">Tap any line and the song jumps there.</span><span class="tr" lang="fr">Touche une ligne, la chanson y saute.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">No feed to scroll. No ads between tracks.</span><span class="tr" lang="fr">Pas de fil à faire défiler. Pas de pub entre les morceaux.</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">Just your library,</span><span class="tr" lang="fr">Juste ta bibliothèque,</span></button></li>
+          <li><button class="lyric-line" type="button"><span class="sung">playing.</span><span class="tr" lang="fr">qui joue.</span></button></li>
         </ol>
       </div>
     </div>
@@ -146,7 +363,7 @@
         </div>
         <div class="fact reveal">
           <p class="claim"><span class="k">No tracking.</span> Nothing comes back to us.</p>
-          <p class="detail">No analytics, no developer server. Lyrics, credits and share links use public services, each one listed in the <a href="privacy.html">privacy policy</a>.</p>
+          <p class="detail">No analytics, no developer server. Lyrics, credits, artist photos, the Radar and share links use public services, each one listed in the <a href="privacy.html">privacy policy</a>.</p>
         </div>
         <div class="fact reveal d1">
           <p class="claim"><span class="k">Open source.</span> MIT licensed.</p>
@@ -202,7 +419,7 @@
     <ol class="routes">
       <li class="route">
         <b>Sideload the IPA</b>
-        <p>Download <strong>Aura.ipa</strong> from <a href="https://github.com/adrbn/aura/releases">GitHub Releases</a>, then open it in AltStore or SideStore on your iPhone.</p>
+        <p>Download <strong>Aura.ipa</strong> from <a href="https://github.com/adrbn/aura/releases">GitHub Releases</a>, then open it in AltStore or SideStore on your iPhone. This build adds Get It, if you run slskd.</p>
       </li>
       <li class="route">
         <b>Build it yourself</b>
@@ -211,7 +428,7 @@
       </li>
       <li class="route">
         <b>App Store</b>
-        <p><span class="soon">Coming soon.</span> Installed and updated the usual way.</p>
+        <p><span class="soon">Coming soon.</span> Everything but Get It, installed and updated the usual way.</p>
       </li>
     </ol>
     <form method="dialog"><button class="btn btn-primary" type="submit">Done</button></form>

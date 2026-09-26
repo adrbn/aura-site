@@ -23,25 +23,34 @@ Then open <http://localhost:5260>.
 |---|---|
 | `index.html` | the landing page |
 | `privacy.html` | the privacy policy, linked from the App Store listing |
-| `assets/site.css`, `assets/site.js` | styles; sung lyrics, scroll sync, the install sheet, reveals |
-| `assets/fonts/` | Vavin Italic, under the SIL Open Font License (`OFL.txt`) |
+| `assets/site.css` | styles, including the cover reconstructions (sized in container units) |
+| `assets/site.js` | the playable equalizer, the Get It card's cycle, sung lyrics, scroll sync, the install sheet, reveals |
+| `assets/fonts/` | Vavin Italic (`OFL.txt`) for emphasis; Archivo Extra Condensed Black, Expanded Black and Expanded Bold (`Archivo-OFL.txt`) for the covers — both under the SIL Open Font License |
 | `assets/img/` | the app icon |
-| `assets/shots/` | app screenshots (WebP) |
+| `assets/shots/` | app screenshots (WebP), shown whole in the hero's phone frames |
 
 ## Screenshots
 
-Each is found by file name in `assets/shots/`; a missing one shows a hatched frame with the expected name.
+Only the hero uses screenshots. Each is found by file name in `assets/shots/`, shown whole at 660 × 1435; a missing one shows a hatched frame with the expected name.
 
 | File | Screen |
 |---|---|
 | `home.webp` | Home — hero, left |
 | `now-playing.webp` | Now Playing — hero, centre |
-| `playlists.webp` | Playlists — hero, right |
-| `eq.webp` | Equalizer — large bento card |
-| `settings.webp` | Settings (Lyrics + Playback) — "Tuned your way." card |
-| `made-for-you.webp` | the Made For You row, cropped from Home |
+| `radio.webp` | a radio — hero, right |
+
+Everything else is rebuilt in HTML, CSS and a little JavaScript rather than cropped from a screenshot:
+
+- **Instant Mix** — a radio cover drawn the way the app draws one: the seed artist's disc sending out rings, two similar artists beside it, the name on a black band.
+- **Equalizer** — the app's curve, playable: drag a point or use the arrow keys, or pick one of the fifteen presets. Without JavaScript it shows the Electronic curve.
+- **Radar** — four made-up releases, marked as on the server or missing, one playing its preview.
+- **Made For You** — the typographic covers (Radar, Evening, Chill, Soul Jazz, a 2025 Wrapped) in a slow marquee.
+- **Get It** — the fetch card above the mini player, stepping from "Looking on Soulseek" to "In your library". Without JavaScript it rests on "Downloading".
+- **Lyrics** — sung as you scroll, a line at a time; Translate puts a French line under each, as the app does with its on-device translation.
+
+The artists and releases on these are invented.
 
 ## Before sharing the link
 
-- Retake the screenshots against a demo library of freely licensed music, with the app's default accent and a clean status bar.
+- Retake the three hero screenshots against a demo library of freely licensed music, with the app's default accent and a clean status bar.
 - The links to `github.com/adrbn/aura` — source, issues, releases, and "Get the IPA" — resolve once that repository is public.
