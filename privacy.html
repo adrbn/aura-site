@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aura — Privacy Policy</title>
-<meta name="description" content="How Aura handles your data. Short version — it doesn't leave your device.">
+<meta name="description" content="How Aura handles your data: nothing is sent to the developer, and each outside service the app can talk to is listed here with what it receives.">
 <style>
   :root {
     --bg: #ffffff;
@@ -59,7 +59,7 @@
 <main>
   <header>
     <h1>Aura Privacy Policy</h1>
-    <p class="muted"><strong>Last updated:</strong> 2026-09-26 &nbsp;·&nbsp; <strong>Effective:</strong> same as above</p>
+    <p class="muted"><strong>Last updated:</strong> 2026-09-27 &nbsp;·&nbsp; <strong>Effective:</strong> same as above</p>
   </header>
 
   <p>Aura (“the app”) is a music playback client for Subsonic-API-compatible servers (Navidrome, Airsonic, Gonic, and others) that <strong>you</strong> host or have legitimate access to. This policy explains what information Aura handles and what it does not.</p>
@@ -71,6 +71,7 @@
       <li>Aura sends <strong>nothing</strong> to any server owned by the developer.</li>
       <li>All data (server URLs, credentials, playback state, cached audio) stays on your device.</li>
       <li>Aura talks to the servers you configure. To find lyrics, share links, song credits, artist photos, missing covers and new releases, it also looks up a track&#8217;s, an album&#8217;s or an artist&#8217;s name on a few public services, listed below &#8212; never on a server run by the developer.</li>
+      <li>Lyrics are translated only if you add your own Google Gemini API key. Then the lyrics you translate are sent to Google, with the song&#8217;s title and artist.</li>
     </ul>
   </div>
 
@@ -80,6 +81,8 @@
   <ul>
     <li>Your server password(s)</li>
     <li>Your Soulseek / slskd password (sideload build only — not present in the App Store build)</li>
+    <li>Your Google Gemini API key, if you add one for lyrics translation</li>
+    <li>Your Last.fm API key, if you turn on the Last.fm integration</li>
   </ul>
   <p>Keychain entries are scoped to Aura and can be cleared by deleting the app.</p>
 
@@ -98,6 +101,7 @@
     <li>Streaming cache (partial audio files — automatically evicted by LRU policy)</li>
     <li>Downloaded songs (when you explicitly download them for offline use)</li>
     <li>Local database of your library metadata (for offline search)</li>
+    <li>Lyrics translations, if you use translation</li>
   </ul>
   <p>All of the above is removed when you delete the app.</p>
 
@@ -129,8 +133,10 @@
   <p>When you open the radar, Aura asks Deezer for the <strong>track lists</strong> of the releases your server doesn't have yet — to count their songs, and to queue them when you press Play — and streams the tracks' <strong>thirty-second previews</strong> from Deezer's audio servers when they play. Deezer sees which releases were looked up and which previews were played — nothing else about you or your library.</p>
   <p>With the Radar on, what you type in <strong>Search</strong> is also sent to the same catalogue, so Search can show the songs and releases your server doesn't have, with their previews. Deezer receives the <strong>search text</strong> — no account, device identifier, or library. Switch the Radar off and Search asks only your server.</p>
 
-  <h3>Lyrics translation (on the device)</h3>
-  <p>When you turn on translation in the lyrics, the lines are translated <strong>on your device</strong>: by Apple Intelligence's on-device language model where it is turned on, otherwise by Apple's Translation framework. The lyrics are not sent to Apple, to the developer, or to any translation service. The first time a pair of languages is used, iOS may offer to download it; that download is between your device and Apple, like any system language. Translations are kept in the app's cache.</p>
+  <h3>To Google Gemini (lyrics translation, only with your own key)</h3>
+  <p>Aura translates lyrics only with your own Google Gemini API key, which you add in <strong>Settings → Lyrics → Translation</strong>. Without a key, lyrics are not translated and nothing is sent to Google.</p>
+  <p>With a key, when translation is on and the lyrics on screen are in another language than your iPhone&#8217;s, Aura sends those <strong>lyrics</strong> to Google&#8217;s Gemini API (<code>generativelanguage.googleapis.com</code>), with the song&#8217;s <strong>title and artist</strong> and the language to translate into. Nothing else is sent: not your server, your library or your listening history. When you add the key, Aura also sends one sample line to check that the key works.</p>
+  <p>The requests are made with your key, under your own agreement with Google (<a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a>). On Google&#8217;s free tier, Google may use what you send to improve its products. The key is stored in your iPhone&#8217;s Keychain and is sent only to Google. Translations are kept on your device, so a song you have already translated is shown without asking Google again. Remove the key and Aura stops translating.</p>
 
   <h3>To MusicBrainz (for song credits)</h3>
   <p>When you open a song's credits/info, Aura queries the public <strong>MusicBrainz</strong> database (<code>musicbrainz.org</code>) with the artist and title to fetch writer/producer/label credits. No account or identifier is sent.</p>

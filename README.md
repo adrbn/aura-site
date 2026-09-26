@@ -26,7 +26,7 @@ Then open <http://localhost:5260>.
 | `assets/site.css` | styles, including the cover reconstructions (sized in container units) |
 | `assets/site.js` | the playable equalizer, the Get It card's cycle, sung lyrics, scroll sync, the install sheet, reveals |
 | `assets/fonts/` | Vavin Italic (`OFL.txt`) for emphasis; Archivo Extra Condensed Black, Expanded Black and Expanded Bold (`Archivo-OFL.txt`) for the covers — both under the SIL Open Font License |
-| `assets/img/` | the app icon |
+| `assets/img/` | the app icon, and `aura-og.png`, the 1200 × 630 link preview (Open Graph and Twitter card) |
 | `assets/shots/` | app screenshots (WebP), shown whole in the hero's phone frames |
 
 ## Screenshots
@@ -46,7 +46,7 @@ Everything else is rebuilt in HTML, CSS and a little JavaScript rather than crop
 - **Radar** — four made-up releases, marked as on the server or missing, one playing its preview.
 - **Made For You** — the typographic covers (Radar, Evening, Chill, Soul Jazz, a 2025 Wrapped) in a slow marquee.
 - **Get It** — the fetch card above the mini player, stepping from "Looking on Soulseek" to "In your library". Without JavaScript it rests on "Downloading".
-- **Lyrics** — sung as you scroll, a line at a time; Translate puts a French line under each, as the app does with its on-device translation.
+- **Lyrics** — sung as you scroll, a line at a time; tap a line to jump to it.
 
 The artists and releases on these are invented.
 
