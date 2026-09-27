@@ -105,6 +105,9 @@
   </ul>
   <p>All of the above is removed when you delete the app.</p>
 
+  <h3>Your photo library</h3>
+  <p>Aura never reads your photo library. <strong>Change Cover Art</strong> on a playlist opens the system photo picker, which hands Aura only the picture you choose. <strong>Save Cover Art</strong> asks iOS for permission to <em>add</em> to your library, and only adds that cover.</p>
+
   <h2>Data Aura sends over the network</h2>
 
   <h3>To your configured Subsonic/Navidrome server</h3>
@@ -135,7 +138,7 @@
 
   <h3>To Google Gemini (lyrics translation, only with your own key)</h3>
   <p>Aura translates lyrics only with your own Google Gemini API key, which you add in <strong>Settings → Lyrics → Translation</strong>. Without a key, lyrics are not translated and nothing is sent to Google.</p>
-  <p>With a key, when translation is on and the lyrics on screen are in another language than your iPhone&#8217;s, Aura sends those <strong>lyrics</strong> to Google&#8217;s Gemini API (<code>generativelanguage.googleapis.com</code>), with the song&#8217;s <strong>title and artist</strong> and the language to translate into. Nothing else is sent: not your server, your library or your listening history. When you add the key, Aura also sends one sample line to check that the key works.</p>
+  <p>With a key, when you tap the translate button on lyrics in another language than your iPhone&#8217;s, Aura sends those <strong>lyrics</strong> to Google&#8217;s Gemini API (<code>generativelanguage.googleapis.com</code>), with the song&#8217;s <strong>title and artist</strong> and the language to translate into. Nothing else is sent: not your server, your library or your listening history. When you add the key, Aura also sends one sample line to check that the key works.</p>
   <p>The requests are made with your key, under your own agreement with Google (<a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a>). On Google&#8217;s free tier, Google may use what you send to improve its products. The key is stored in your iPhone&#8217;s Keychain and is sent only to Google. Translations are kept on your device, so a song you have already translated is shown without asking Google again. Remove the key and Aura stops translating.</p>
 
   <h3>To MusicBrainz (for song credits)</h3>
@@ -170,7 +173,7 @@
   </ul>
 
   <h2>Jurisdiction</h2>
-  <p>Aura is a free/open-source project published from France. EU/GDPR applies by default. Under GDPR Articles 15–22 you have rights to access, rectification, erasure, restriction, portability, and objection — however, because Aura holds no personal data about you on any server we control, there is generally nothing to exercise those rights against. If you believe otherwise, contact us via the links above.</p>
+  <p>Aura is a free, open-source project by an independent developer. Whatever your country, the rights the GDPR (Articles 15–22) and similar laws give you are honoured: access, rectification, erasure, restriction, portability, and objection — however, because Aura holds no personal data about you on any server we control, there is generally nothing to exercise those rights against. If you believe otherwise, contact us via the links above.</p>
 
   <footer>
     <p class="muted">Aura is not affiliated with Navidrome, Subsonic, or Apple. Contact: <a href="https://github.com/adrbn/aura-site/issues">github.com/adrbn/aura-site/issues</a></p>
