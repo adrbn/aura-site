@@ -112,6 +112,9 @@ button { font: inherit; color: inherit; }
 .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; font-size: 22px; font-weight: 700; letter-spacing: var(--track); line-height: 1.025; }
 .brand img { width: 26px; height: 26px; }
 .nav-actions { display: flex; align-items: center; gap: 22px; }
+.icon-link { display: grid; place-items: center; width: 26px; height: 26px; transition: color var(--dur-ui); }
+.icon-link:hover { color: var(--accent); }
+.icon-link svg { width: 22px; height: 22px; }
 .nav.on-light .btn-primary { background: var(--l-ink); color: var(--l-bg); }
 .nav.on-light .btn-primary:hover { background: var(--accent); color: var(--on-accent); }
 
@@ -268,11 +271,7 @@ button { font: inherit; color: inherit; }
 .bars i:nth-child(3) { animation-delay: -.6s; }
 @keyframes bar { from { transform: scaleY(.3); } to { transform: scaleY(1); } }
 
-.thumb { flex: none; display: block; width: 50px; height: 50px; border-radius: 6px; background: var(--surface-2); }
-.t1 { background: radial-gradient(circle at 70% 30%, #ffe3a8 0 11%, #0000 12%), linear-gradient(160deg, #ff9f5a, #e2456f 55%, #5b2a86); }
-.t2 { background: radial-gradient(circle at 28% 68%, #9fe0ff 0 9%, #0000 10%), linear-gradient(200deg, #29509c, #0b1430 70%); }
-.t3 { background: linear-gradient(135deg, #efe8d6 0 46%, #2f5bff 46% 61%, #16161a 61%); }
-.t4 { background: radial-gradient(circle at 66% 34%, #ffd27a 0 13%, #0000 14%), linear-gradient(180deg, #93a6b4, #33404b); }
+.thumb { flex: none; display: block; width: 50px; height: 50px; border-radius: 6px; background: var(--surface-2); object-fit: cover; }
 
 /* Made For You : les pochettes typographiques, en défilement continu */
 .card-mfy { display: flex; flex-direction: column; }
@@ -466,6 +465,29 @@ button { font: inherit; color: inherit; }
 .footer-meta nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
 .footer-meta a { text-decoration: none; transition: color var(--dur-ui); }
 .footer-meta a:hover { color: var(--ink); }
+.credits { width: var(--site-width); margin: -28px auto 0; padding: 0 0 48px; color: var(--ink-2); font-size: 12px; line-height: 1.5; }
+.credits a { color: inherit; text-underline-offset: 2px; transition: color var(--dur-ui); }
+.credits a:hover { color: var(--ink); }
+
+/* ---------- feuille d'installation ---------- */
+.sheet { width: min(560px, 100% - 32px); max-height: min(88vh, 760px); padding: 0; border: 0; border-radius: 32px; background: var(--surface); color: var(--ink); box-shadow: 0 24px 80px rgb(0 0 0 / .5); }
+.sheet::backdrop { background: rgb(14 11 11 / .66); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.sheet-inner { padding: 34px 32px 28px; }
+.sheet h2 { margin: 0; font-size: 28px; font-weight: 700; line-height: 1.05; letter-spacing: var(--track); }
+.sheet-sub { margin: 10px 0 0; color: var(--ink-2); font-size: 16px; }
+.routes { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 10px; }
+.route { background: var(--surface-2); border-radius: 22px; padding: 18px 20px; }
+.route b { display: block; font-size: 18px; font-weight: 700; letter-spacing: var(--track); }
+.route p { margin: 6px 0 0; color: var(--ink-2); font-size: 15px; line-height: 1.45; }
+.route a { color: var(--ink); text-underline-offset: 3px; }
+.route .soon { color: var(--accent); font-weight: 600; }
+.sheet .btn { width: 100%; margin-top: 18px; height: 52px; font-size: 17px; }
+@media (max-width: 700px) {
+  .sheet { width: 100%; max-width: none; margin: auto 0 0; border-radius: 28px 28px 0 0; max-height: 92svh; }
+  .sheet-inner { padding: 28px 20px calc(20px + env(safe-area-inset-bottom, 0px)); }
+}
+.sheet[open] { animation: sheet-in .45s var(--ease-out); }
+@keyframes sheet-in { from { opacity: 0; transform: translateY(24px); } }
 
 /* ---------- apparitions (cachées seulement si le script tourne) ---------- */
 .js .reveal:not(.revealed) { opacity: 0; transform: translateY(40px); filter: blur(14px); }
@@ -482,6 +504,7 @@ button { font: inherit; color: inherit; }
   .reveal, .lyric-h1 .line, .lyric-h1 .w, .js .lyrics-lines, .js .lyric-line { transition: none; }
   .js .lyric-line { filter: none; transform: none; }
   .js .wordmark { transition: none; background-position: 0 0; }
+  .sheet[open] { animation: none; }
   .ring, .bars i, .marquee-track { animation: none; }
   .bars i:nth-child(1) { transform: scaleY(.55); }
   .bars i:nth-child(3) { transform: scaleY(.75); }

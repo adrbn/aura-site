@@ -8,6 +8,22 @@
   const root = document.documentElement;
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // ---------- feuille d'installation (fonctionne même sans effets) ----------
+  const initInstallSheet = () => {
+    const sheet = document.getElementById("install");
+    if (!sheet) return;
+    document.querySelectorAll("[data-install]").forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        if (typeof sheet.showModal !== "function") return; // vieux navigateur : le lien mène aux Releases
+        event.preventDefault();
+        sheet.showModal();
+      });
+    });
+    sheet.addEventListener("click", (event) => {
+      if (event.target === sheet) sheet.close(); // clic sur le fond
+    });
+  };
+
   // ---------- boucles CSS : en pause hors de l'écran ----------
   const pauseLoopsOffscreen = () => {
     const loops = document.querySelectorAll("[data-loop]");
@@ -177,6 +193,7 @@
   };
 
 
+  initInstallSheet();
   initEqualizer(document.getElementById("eq"));
   pauseLoopsOffscreen();
 
