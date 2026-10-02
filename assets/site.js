@@ -1,28 +1,12 @@
 // Aura landing — comportements. Sans ce script, la page reste entièrement lisible :
 // le <head> retire la classe .js si ce fichier ne s'est pas exécuté au bout de 3 s.
-// L'égaliseur et la carte Get It ont leur état statique dans le HTML ; ce script les anime.
+// L'égaliseur a son état statique dans le HTML ; ce script l'anime.
 (() => {
   "use strict";
   window.auraReady = true;
 
   const root = document.documentElement;
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  // ---------- feuille d'installation (fonctionne même sans effets) ----------
-  const initInstallSheet = () => {
-    const sheet = document.getElementById("install");
-    if (!sheet) return;
-    document.querySelectorAll("[data-install]").forEach((trigger) => {
-      trigger.addEventListener("click", (event) => {
-        if (typeof sheet.showModal !== "function") return; // vieux navigateur : le lien mène aux Releases
-        event.preventDefault();
-        sheet.showModal();
-      });
-    });
-    sheet.addEventListener("click", (event) => {
-      if (event.target === sheet) sheet.close(); // clic sur le fond
-    });
-  };
 
   // ---------- boucles CSS : en pause hors de l'écran ----------
   const pauseLoopsOffscreen = () => {
@@ -192,62 +176,8 @@
     eq.classList.add("is-live");
   };
 
-  // ---------- Get It : la carte de l'app, étape par étape ----------
-  const TRACKS = 12;
-  const downloadFrame = (progress) => Object.freeze({
-    stage: "downloading",
-    status: `Downloading · FLAC · ${Math.floor(progress * TRACKS)}/${TRACKS} tracks · ${Math.round(progress * 100)}%`,
-    fills: [1, Math.max(0.04, progress), 0, 0],
-    hold: 520,
-  });
-  const FETCH_TIMELINE = Object.freeze([
-    { stage: "searching", status: "Looking on Soulseek", fills: [0.25, 0, 0, 0], hold: 1900 },
-    { stage: "searching", status: "Picking the best copy · 7 copies found", fills: [0.7, 0, 0, 0], hold: 1900 },
-    ...[0.04, 0.12, 0.26, 0.41, 0.57, 0.72, 0.86, 1].map(downloadFrame),
-    { stage: "importing", status: "Adding to your library · About 2 min left", fills: [1, 1, 0.1, 0], hold: 1300 },
-    { stage: "importing", status: "Adding to your library · About 2 min left", fills: [1, 1, 0.45, 0], hold: 1300 },
-    { stage: "ready", status: "In your library · Tap to play", fills: [1, 1, 1, 1], hold: 3400 },
-    { stage: "leaving", hold: 700 },
-  ].map((frame) => Object.freeze(frame)));
 
-  const initGetIt = (card) => {
-    if (!card || reduceMotion || !("IntersectionObserver" in window)) return; // reste sur « Downloading »
-    const status = card.querySelector(".gi-status");
-    const steps = [...card.querySelectorAll(".gi-steps i")];
-    let index = 0;
-    let timer = 0;
-    let visible = false;
-    let hovered = false;
-
-    const render = (frame) => {
-      card.dataset.stage = frame.stage;
-      if (frame.stage === "leaving") return;
-      status.textContent = frame.status;
-      steps.forEach((step, i) => step.style.setProperty("--f", String(frame.fills[i])));
-    };
-    const play = () => {
-      clearTimeout(timer);
-      if (!visible || hovered) return;
-      const frame = FETCH_TIMELINE[index];
-      render(frame);
-      timer = setTimeout(() => {
-        index = (index + 1) % FETCH_TIMELINE.length;
-        play();
-      }, frame.hold);
-    };
-
-    new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      play();
-    }, { threshold: 0.3 }).observe(card);
-    const stage = card.closest(".getit-stage") || card;
-    stage.addEventListener("pointerenter", () => { hovered = true; clearTimeout(timer); });
-    stage.addEventListener("pointerleave", () => { hovered = false; play(); });
-  };
-
-  initInstallSheet();
   initEqualizer(document.getElementById("eq"));
-  initGetIt(document.getElementById("gi-card"));
   pauseLoopsOffscreen();
 
   if (!root.classList.contains("js")) return; // le filet de sécurité a déjà tout affiché

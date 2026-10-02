@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aura · Music for Navidrome &amp; Subsonic</title>
-<meta name="description" content="A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free and open source.">
+<meta name="description" content="A native SwiftUI player for Navidrome and Subsonic servers, on iPhone and Apple Watch. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free.">
 <meta name="theme-color" content="#0e0b0b">
 <link rel="canonical" href="https://getauraios.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aura">
 <meta property="og:title" content="Aura · Music for Navidrome &amp; Subsonic">
-<meta property="og:description" content="A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free and open source.">
+<meta property="og:description" content="A native SwiftUI player for Navidrome and Subsonic servers, on iPhone and Apple Watch. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free.">
 <meta property="og:url" content="https://getauraios.vercel.app/">
 <meta property="og:image" content="https://getauraios.vercel.app/assets/img/aura-og.png">
 <meta property="og:image:type" content="image/png">
@@ -19,7 +19,7 @@
 <meta property="og:image:alt" content="The Aura app icon, a red play triangle on white, beside the word Aura on a dark background">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aura · Music for Navidrome &amp; Subsonic">
-<meta name="twitter:description" content="A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free and open source.">
+<meta name="twitter:description" content="A native SwiftUI player for Navidrome and Subsonic servers, on iPhone and Apple Watch. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free.">
 <meta name="twitter:image" content="https://getauraios.vercel.app/assets/img/aura-og.png">
 <meta name="twitter:image:alt" content="The Aura app icon, a red play triangle on white, beside the word Aura on a dark background">
 <link rel="icon" href="assets/img/aura-icon-64.png">
@@ -37,7 +37,6 @@
     <!-- une silhouette, là où l'app pose une photo d'artiste -->
     <symbol id="figure" viewBox="0 0 100 100"><circle cx="50" cy="39" r="17"/><path d="M13 104C13 76 29 63 50 63S87 76 87 104Z"/></symbol>
     <symbol id="i-held" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="m7.2 12.3 3.1 3.1 6.5-6.8" fill="none" stroke="var(--on-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-get" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v9.2m-3.8-3.8L12 16.2l3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </defs>
 </svg>
 
@@ -45,12 +44,7 @@
   <div class="wrap nav-inner">
     <a class="brand" href="#top"><img src="assets/img/aura-icon-64.png" alt="" width="26" height="26">Aura</a>
     <div class="nav-actions">
-      <a class="icon-link" href="https://github.com/adrbn/aura" aria-label="Aura on GitHub">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
-      </a>
-      <a class="btn btn-primary btn-sm" href="https://github.com/adrbn/aura/releases" data-install>
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 1.5v8M3.5 6 7 9.5 10.5 6M1.5 12.5h11"/></svg>Get the IPA
-      </a>
+      <span class="btn btn-primary btn-sm is-soon">Coming to the App Store</span>
     </div>
   </div>
 </header>
@@ -63,21 +57,16 @@
       <span class="line"><span class="w">The</span> <span class="w">polish</span> <span class="w">of</span> <span class="w">Apple</span> <span class="w">Music.</span></span>
       <span class="line is-next"><span class="w">For</span> <span class="w">the</span> <span class="w">library</span> <span class="w emph">you</span> <span class="w">host.</span></span>
     </h1>
-    <p class="lead reveal d1">A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, mixes built from your own listening, fully offline. Free and open source.</p>
+    <p class="lead reveal d1">A native SwiftUI player for Navidrome and Subsonic servers. Lossless, synced lyrics, mixes built from your own listening, fully offline.</p>
     <div class="actions reveal d2">
-      <a class="btn btn-primary" href="https://github.com/adrbn/aura/releases" data-install>
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 1.5v8M3.5 6 7 9.5 10.5 6M1.5 12.5h11"/></svg>Get the IPA
-      </a>
-      <a class="btn btn-secondary" href="https://github.com/adrbn/aura">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub
-      </a>
+      <span class="btn btn-primary is-soon">Coming soon to the App Store</span>
     </div>
-    <p class="fineprint reveal d2">Free · iOS 26 or later · App Store coming soon</p>
+    <p class="fineprint reveal d2">Free · iPhone and Apple Watch · iOS 26 or later</p>
 
     <div class="stage reveal d3">
-      <figure class="phone side"><div class="screen shot" data-label="Screenshot · Home&#10;assets/shots/home.webp"><img src="assets/shots/home.webp" width="660" height="1435" alt="Aura’s Home: the server’s name as the title, the library’s counts, Made For You mixes with editorial covers, favourite artists and songs, and the mini player above the tab bar" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
-      <figure class="phone"><div class="screen shot" data-label="Screenshot · Now Playing&#10;assets/shots/now-playing.webp"><img src="assets/shots/now-playing.webp" width="660" height="1435" alt="Aura’s Now Playing on a background drawn from the cover: the artwork, title and artist, a favourite heart, the scrubber, playback controls, and buttons for lyrics, Instant Mix, the queue, the sleep timer, the output and sharing" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
-      <figure class="phone side"><div class="screen shot" data-label="Screenshot · Radio&#10;assets/shots/radio.webp"><img src="assets/shots/radio.webp" width="660" height="1435" alt="A radio in Aura: its cover shows the seed artist in a disc sending out rings, with Play, Shuffle and Save as Playlist above the radio’s songs" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
+      <figure class="phone side"><div class="screen shot" data-label="Screenshot · Home&#10;assets/shots/home.webp"><img src="assets/shots/home.webp" width="660" height="1435" alt="Aura’s Home: the library’s counts, a link to the month’s Wrapped, Made For You mixes with their covers, favourite artists and songs, and the mini player above the tab bar" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
+      <figure class="phone"><div class="screen shot" data-label="Screenshot · Now Playing&#10;assets/shots/now-playing.webp"><img src="assets/shots/now-playing.webp" width="660" height="1435" alt="Aura’s Now Playing on a background drawn from the cover: the artwork, title and artist, the year and genre, a favourite heart, the scrubber, playback controls, and buttons for lyrics, Instant Mix, the queue, the sleep timer, the output and sharing" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
+      <figure class="phone side"><div class="screen shot" data-label="Screenshot · Radio&#10;assets/shots/radio.webp"><img src="assets/shots/radio.webp" width="660" height="1435" alt="A radio in Aura: its cover shows the seed artist in a disc with two similar artists beside it, with Play, Shuffle and Save as Playlist above the radio’s songs" onerror="this.parentElement.classList.add('is-empty')"></div></figure>
     </div>
   </section>
 
@@ -161,12 +150,11 @@
 
       <div class="card card-radar reveal" data-loop>
         <h3 class="card-title">Radar</h3>
-        <p class="card-body">This month’s releases from the artists you play most, newest first. What your server has plays whole; the rest plays as thirty-second previews, lyrics and all.</p>
+        <p class="card-body">This month’s releases from the artists you play most, newest first. What your server has plays whole; the rest plays as thirty-second previews, lyrics and all. Swipe away a release you don’t want, or stop following an artist.</p>
         <ol class="rrows">
           <li class="rrow is-current">
             <span class="thumb t1"></span>
             <span class="rrow-text"><b><span class="bars" role="img" aria-label="Playing its preview"><i></i><i></i><i></i></span>Glasshouse Summer</b><span class="rrow-meta">Juno Farrow · Album · Sep 25</span></span>
-            <svg class="rrow-mark is-get" role="img" aria-label="Not on your server"><use href="#i-get"/></svg>
           </li>
           <li class="rrow">
             <span class="thumb t2"></span>
@@ -175,8 +163,7 @@
           </li>
           <li class="rrow">
             <span class="thumb t3"></span>
-            <span class="rrow-text"><b>Paper Satellites</b><span class="rrow-meta">Loma Vey · Album · Sep 19 · 3 to get</span></span>
-            <svg class="rrow-mark is-get" role="img" aria-label="Partly on your server"><use href="#i-get"/></svg>
+            <span class="rrow-text"><b>Paper Satellites</b><span class="rrow-meta">Loma Vey · Album · Sep 19</span></span>
           </li>
           <li class="rrow">
             <span class="thumb t4"></span>
@@ -184,13 +171,13 @@
             <svg class="rrow-mark is-held" role="img" aria-label="On your server"><use href="#i-held"/></svg>
           </li>
         </ol>
-        <p class="rrow-legend"><span><svg class="is-held" aria-hidden="true"><use href="#i-held"/></svg>On your server</span><span><svg class="is-get" aria-hidden="true"><use href="#i-get"/></svg>Missing: Get It, in the sideload build</span><span><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Playing a thirty-second preview</span></p>
+        <p class="rrow-legend"><span><svg class="is-held" aria-hidden="true"><use href="#i-held"/></svg>On your server</span><span><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Playing a thirty-second preview</span></p>
       </div>
 
       <div class="card card-mfy reveal d1">
         <div class="card-copy">
           <h3 class="card-title">Made For You</h3>
-          <p class="card-body">Mixes by time of day, mood and genre, drawn from your own library, each with a cover designed the way a streaming service would. The Radar leads the row, and a Year Wrapped looks back on what you really played.</p>
+          <p class="card-body">Mixes by time of day, mood and genre, drawn from your own library, each with its own cover. The Radar leads the row, and a Wrapped for each month and each year looks back on what you really played.</p>
         </div>
         <div class="marquee" data-loop>
           <ul class="marquee-track">
@@ -271,66 +258,19 @@
     </div>
   </section>
 
-  <section class="wrap section getit" id="get-it" aria-labelledby="getit-title">
-    <div class="getit-grid">
-      <div class="getit-copy">
-        <p class="eyebrow reveal">Sideload build only</p>
-        <h2 class="h2 reveal" id="getit-title"><span class="line">Download what</span><span class="line">the Radar finds.</span></h2>
-        <p class="section-lead reveal d1">The sideload build works with slskd, a Soulseek client you run next to your server. When a release or a song isn’t in your library, Get It downloads it and your server adds it.</p>
-        <ul class="getit-points reveal d1">
-          <li>Get It is on Radar releases, on Deezer results in Search, and on the heart while a preview plays in Now Playing. On a release’s page you can pick single songs.</li>
-          <li>Aura chooses the copy with the most of the release’s tracks, in the best quality available, from a peer that can start now. If a download stalls, it tries another.</li>
-          <li>Progress shows in a card above the mini player and in a Live Activity. The time estimate comes from how long your server took to import the last few releases.</li>
-          <li>If you’re still listening to the preview when the song arrives, playback switches to the full track at the same point.</li>
-        </ul>
-        <p class="getit-fine reveal d2">Needs your own slskd server. Not in the App Store version. Only download music you have the right to.</p>
-      </div>
-
-      <figure class="getit-stage reveal d1" role="img" aria-label="Aura’s Get It card above the mini player, following a release from looking on Soulseek to downloading, adding it to the library, and ready to play">
-        <div class="gi-screen" aria-hidden="true">
-          <ol class="rrows gi-rows">
-            <li class="rrow"><span class="thumb t2"></span><span class="rrow-text"><b>Night Ferry</b><span class="rrow-meta">Tessel · Single · Sep 22</span></span><svg class="rrow-mark is-held"><use href="#i-held"/></svg></li>
-            <li class="rrow"><span class="thumb t1"></span><span class="rrow-text"><b>Glasshouse Summer</b><span class="rrow-meta">Juno Farrow · Album · Sep 25</span></span><svg class="rrow-mark is-get"><use href="#i-get"/></svg></li>
-            <li class="rrow"><span class="thumb t3"></span><span class="rrow-text"><b>Paper Satellites</b><span class="rrow-meta">Loma Vey · Album · Sep 19 · 3 to get</span></span><svg class="rrow-mark is-get"><use href="#i-get"/></svg></li>
-            <li class="rrow"><span class="thumb t4"></span><span class="rrow-text"><b>Slow Weather</b><span class="rrow-meta">Mireille Okafor · EP · Sep 12</span></span><svg class="rrow-mark is-held"><use href="#i-held"/></svg></li>
-            <li class="rrow"><span class="thumb t5"></span><span class="rrow-text"><b>Low Sun, High Water</b><span class="rrow-meta">Veda Lune · Single · Sep 8</span></span><svg class="rrow-mark is-get"><use href="#i-get"/></svg></li>
-          </ol>
-          <div class="gi-veil"></div>
-          <div class="gi-dock">
-            <div class="gi-card" id="gi-card" data-stage="downloading">
-              <span class="thumb t1 gi-cover"></span>
-              <span class="gi-text">
-                <b class="gi-title">Glasshouse Summer</b>
-                <span class="gi-status">Downloading · FLAC · 3/12 tracks · 26%</span>
-                <span class="gi-steps"><i style="--f: 1"></i><i style="--f: .26"></i><i style="--f: 0"></i><i style="--f: 0"></i></span>
-              </span>
-              <span class="gi-play"><svg viewBox="0 0 14 16"><path d="M1 2.2v11.6a1.2 1.2 0 0 0 1.8 1l9.6-5.8a1.2 1.2 0 0 0 0-2L2.8 1.2A1.2 1.2 0 0 0 1 2.2Z"/></svg></span>
-            </div>
-            <div class="gi-mini">
-              <span class="thumb t1"></span>
-              <span class="gi-mini-text"><b>Lanterns</b><span>Juno Farrow</span></span>
-              <svg class="gi-glyph" viewBox="0 0 20 20"><rect x="4" y="3" width="4" height="14" rx="1.2"/><rect x="12" y="3" width="4" height="14" rx="1.2"/></svg>
-              <svg class="gi-glyph" viewBox="0 0 24 20"><path d="M1.5 3.6v12.8a1 1 0 0 0 1.5.86L12 11.4v5a1 1 0 0 0 1.5.86l9-6.4a1 1 0 0 0 0-1.72l-9-6.4A1 1 0 0 0 12 3.6v5L3 2.74a1 1 0 0 0-1.5.86Z"/></svg>
-            </div>
-          </div>
-        </div>
-      </figure>
-    </div>
-  </section>
-
   <section class="wrap section also-section" aria-labelledby="also-title">
     <h2 class="h2 also-title reveal" id="also-title">And all the rest.</h2>
     <ul class="also reveal">
       <li><b>Siri, in two languages</b><span>Play, pause, skip, shuffle, repeat, favourite, or a playlist or album by name, with the app closed. “Play my favourites in Aura”, or «&nbsp;Joue mes favoris sur Aura&nbsp;».</span></li>
-      <li><b>In the car</b><span>CarPlay’s Now Playing, and shuffle and repeat buttons that work from the car stereo or a remote.</span></li>
-      <li><b>Lock Screen &amp; Island</b><span>Controls on the Lock Screen, in Control Center and in the Dynamic Island, with a Live Activity and AirPlay.</span></li>
-      <li><b>Search that forgives</b><span>Fuzzy, ranked so what you typed comes first, and it remembers what you played. With the Radar on, it also finds what your server doesn’t have yet.</span></li>
+      <li><b>CarPlay</b><span>Your library laid out as on the phone: Home with the mixes and the Radar, your playlists, the newest albums, and Now Playing with the heart and Up Next.</span></li>
+      <li><b>Apple Watch</b><span>Control the iPhone’s player from your wrist: Now Playing, lyrics, Up Next, the Digital Crown on the volume. Search, or start a mix, a favourite or a playlist.</span></li>
+      <li><b>Lock Screen &amp; Island</b><span>Controls on the Lock Screen, in Control Center and in the Dynamic Island, and AirPlay.</span></li>
+      <li><b>Search that forgives</b><span>Fuzzy, ranked so what you typed comes first, and it remembers what you played. With the Radar on, it also shows releases your server doesn’t have yet, as previews.</span></li>
       <li><b>Playlists, filtered</b><span>A grid of covers or a list, narrowed in a tap to the pinned ones, radios, mixes, yours, shared or downloaded.</span></li>
       <li><b>A real queue</b><span>Play next, add to the end, drag to reorder. And a sleep timer that stops after a set time or at the end of the song.</span></li>
-      <li><b>Pages in colour</b><span>Albums, playlists, mixes and radios open in the colour of their artwork, and the tabs glow with what’s playing.</span></li>
-      <li><b>No blank covers</b><span>When your server has no artwork for an album, Aura finds the real cover in Deezer’s catalogue.</span></li>
+      <li><b>Pages in colour</b><span>Albums, playlists, mixes and radios open in the colour of their artwork. When your server has no cover for an album, Aura finds it in Deezer’s catalogue.</span></li>
       <li><b>Your look</b><span>Light or dark, any accent colour — nine ready-made or one you pick — and the tabs in the order you like.</span></li>
-      <li><b>Nightstand clock</b><span>Switch it on, then turn the phone sideways at night: album art and the time.</span></li>
+      <li><b>Nightstand clock</b><span>Switch it on, turn the phone sideways while music plays, and the artwork and the time fill the screen.</span></li>
       <li><b>Several servers</b><span>Keep more than one profile and switch from the Home title.</span></li>
       <li><b>Share links</b><span>Send a song as links that open it on other services, found through Apple’s and Deezer’s public search.</span></li>
     </ul>
@@ -340,7 +280,7 @@
     <div class="wrap lyrics-head">
       <h2 class="h2 reveal" id="lyrics-title"><span class="line">Every word,</span><span class="line">as it’s sung.</span></h2>
       <div class="reveal d1">
-        <p class="section-lead">Word by word when your server has the timing, line by line when it doesn’t, LRCLIB for the rest. For a duet or a remix, Aura checks the words match the version playing, and Radar previews show their lyrics too. Add your own free Gemini key, and a tap puts a translation in your language under each line.</p>
+        <p class="section-lead">Word by word when your server has the timing, line by line when it doesn’t, LRCLIB for the rest. For a duet or a remix, Aura checks the words match the version playing, and Radar previews show their lyrics too. If the timing is off, set it yourself: tap as each line starts. Add your own free Gemini key, and a tap puts a translation in your language under each line.</p>
         <p class="lyrics-hint">Scroll to sing along, or tap a line to jump to it.</p>
       </div>
     </div>
@@ -379,8 +319,8 @@
           <p class="detail">No analytics, no developer server. Lyrics, credits, artist photos, the Radar and share links use public services, each one listed in the <a href="privacy.html">privacy policy</a>.</p>
         </div>
         <div class="fact reveal d1">
-          <p class="claim"><span class="k">Open source.</span> MIT licensed.</p>
-          <p class="detail">Read it, audit it, or build it yourself in Xcode.</p>
+          <p class="claim"><span class="k">Free.</span> No ads, no subscription.</p>
+          <p class="detail">Nothing to buy inside the app, and nothing to unlock.</p>
         </div>
       </div>
 
@@ -393,17 +333,12 @@
   </section>
 
   <section class="wrap outro">
-    <h2 class="h2 reveal">Free and open source.</h2>
+    <h2 class="h2 reveal">Free, on iPhone and Apple Watch.</h2>
     <div class="actions reveal d1">
-      <a class="btn btn-primary" href="https://github.com/adrbn/aura/releases" data-install>
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 1.5v8M3.5 6 7 9.5 10.5 6M1.5 12.5h11"/></svg>Get the IPA
-      </a>
-      <a class="btn btn-secondary" href="https://github.com/adrbn/aura">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub
-      </a>
+      <span class="btn btn-primary is-soon">Coming soon to the App Store</span>
+      <a class="btn btn-secondary" href="https://github.com/adrbn/aura-site/issues">Report an issue</a>
     </div>
     <p class="fineprint reveal d2">iOS 26 or later · Navidrome, or any server that speaks Subsonic API 1.16.1</p>
-    <p class="support reveal">If Aura earns a place on your home screen, you can back it on <a href="https://ko-fi.com/adrbn">Ko-fi</a> or <a href="https://github.com/sponsors/adrbn">GitHub Sponsors</a>, or star the repo. It genuinely helps.</p>
   </section>
 </main>
 
@@ -415,38 +350,14 @@
     </div>
   </div>
   <div class="footer-meta">
-    <span>© 2026 Adrien Robino · MIT</span>
+    <span>© 2026 Adrien Robino</span>
     <nav aria-label="Footer">
       <a href="privacy.html">Privacy</a>
-      <a href="https://github.com/adrbn/aura">GitHub</a>
-      <a href="https://github.com/adrbn/aura/issues">Report an issue</a>
+      <a href="https://github.com/adrbn/aura-site/issues">Report an issue</a>
     </nav>
     <span>Not affiliated with Navidrome, Subsonic or Apple.</span>
   </div>
 </footer>
-
-<dialog class="sheet" id="install" aria-labelledby="install-title">
-  <div class="sheet-inner">
-    <h2 id="install-title">Get Aura on your iPhone</h2>
-    <p class="sheet-sub">Aura runs on iPhone with iOS 26 or later. Pick the way that suits you.</p>
-    <ol class="routes">
-      <li class="route">
-        <b>Sideload the IPA</b>
-        <p>Download <strong>Aura.ipa</strong> from <a href="https://github.com/adrbn/aura/releases">GitHub Releases</a>, then open it in AltStore or SideStore on your iPhone. This build adds Get It, if you run slskd.</p>
-      </li>
-      <li class="route">
-        <b>Build it yourself</b>
-        <p>Open the project in Xcode 26 and run the “Aura” scheme on your device.</p>
-        <code>git clone https://github.com/adrbn/aura</code>
-      </li>
-      <li class="route">
-        <b>App Store</b>
-        <p><span class="soon">Coming soon.</span> Everything but Get It, installed and updated the usual way.</p>
-      </li>
-    </ol>
-    <form method="dialog"><button class="btn btn-primary" type="submit">Done</button></form>
-  </div>
-</dialog>
 
 <script src="assets/site.js" defer></script>
 </body>
