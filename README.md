@@ -4,7 +4,7 @@ The website for Aura, a music player for Navidrome and other Subsonic servers: t
 
 A static site — plain HTML, CSS and JavaScript, no build step.
 
-The sideload build of Aura (`Aura.ipa`, for AltStore or SideStore) is published on this repository's [Releases](https://github.com/adrbn/aura-site/releases). The app's source is not public.
+The sideload build of Aura (`Aura.ipa`, for AltStore or SideStore) is published on the app repository's [Releases](https://github.com/adrbn/aura/releases), with its source, under the GPL 3.0.
 
 ## Run it locally
 
