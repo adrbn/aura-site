@@ -24,7 +24,6 @@
 <meta name="twitter:image:alt" content="The Aura app icon, a red play triangle on white, beside the word Aura on a dark background">
 <link rel="icon" href="assets/img/aura-icon-64.png">
 <link rel="preload" href="assets/fonts/Vavin-Italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/ArchivoXCondBlack.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script>if("scrollRestoration"in history)history.scrollRestoration="manual";document.documentElement.classList.add("js");setTimeout(function(){if(!window.auraReady)document.documentElement.classList.remove("js")},3000)</script>
 </head>
@@ -94,21 +93,7 @@
             <h3 class="card-title">Instant Mix</h3>
             <p class="card-body">Start a radio from any song or artist. When the queue runs dry, autoplay keeps going. Save it as a playlist on your server, and its cover goes with it.</p>
           </div>
-          <div class="cover cover-radio" role="img" aria-label="A radio cover drawn the way Aura draws one: the seed artist in a disc sending out rings, two similar artists beside it, the name in a black band and the similar artists on a strip beneath" data-loop>
-            <div class="cv" aria-hidden="true">
-              <svg class="rings" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <circle class="ring" cx="50" cy="40" r="100"/><circle class="ring" cx="50" cy="40" r="100"/><circle class="ring" cx="50" cy="40" r="100"/><circle class="ring" cx="50" cy="40" r="100"/><circle class="ring" cx="50" cy="40" r="100"/><circle class="ring" cx="50" cy="40" r="100"/>
-              </svg>
-              <span class="disc disc-left"><svg><use href="#figure"/></svg></span>
-              <span class="disc disc-right"><svg><use href="#figure"/></svg></span>
-              <span class="disc disc-lead"><svg><use href="#figure"/></svg></span>
-              <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Radio</span></span>
-              <span class="cv-foot">
-                <span class="cap title-band" style="font-size: 19cqw">Brad Sucks</span><!-- réduit comme CoverMetrics.fit : le nom tient dans la colonne de 0,88 s -->
-                <span class="cap strip">Nine Inch Nails · Natasha Beller</span>
-              </span>
-            </div>
-          </div>
+          <div class="cover"><img src="assets/covers/radio-blinding-lights.webp" width="520" height="520" alt="A radio cover drawn by Aura: The Weeknd in a disc on pink, with Tory Lanez and Izzy Bizu beside him and the name in a black band" loading="lazy"></div>
         </div>
       </div>
 
@@ -160,23 +145,23 @@
         <h3 class="card-title">Radar</h3>
         <p class="card-body">This month’s releases from the artists you play most, newest first. What your server has plays whole; the rest plays as thirty-second previews, lyrics and all. Swipe away a release you don’t want, or stop following an artist.</p>
         <ol class="rrows">
+          <li class="rrow">
+            <img class="thumb" src="assets/covers/radar-0.webp" alt="" width="50" height="50" loading="lazy">
+            <span class="rrow-text"><b>Karaté Cœur</b><span class="rrow-meta">Zaoui · Album · Sept 25</span></span>
+            <svg class="rrow-mark is-held" role="img" aria-label="On your server"><use href="#i-held"/></svg>
+          </li>
+          <li class="rrow">
+            <img class="thumb" src="assets/covers/radar-1.webp" alt="" width="50" height="50" loading="lazy">
+            <span class="rrow-text"><b>I Wrote You A Letter</b><span class="rrow-meta">M83 · Album · Sept 25</span></span>
+            <svg class="rrow-mark is-held" role="img" aria-label="On your server"><use href="#i-held"/></svg>
+          </li>
           <li class="rrow is-current">
-            <img class="thumb" src="assets/covers/natasha-beller.webp" alt="" width="50" height="50" loading="lazy">
-            <span class="rrow-text"><b><span class="bars" role="img" aria-label="Playing its preview"><i></i><i></i><i></i></span>Fairytale</b><span class="rrow-meta">Natasha Beller · Album · 2018</span></span>
+            <img class="thumb" src="assets/covers/radar-2.webp" alt="" width="50" height="50" loading="lazy">
+            <span class="rrow-text"><b><span class="bars" role="img" aria-label="Playing its preview"><i></i><i></i><i></i></span>LIMINAL SPACES</b><span class="rrow-meta">Sky McCreery · Single · Sept 25</span></span>
           </li>
           <li class="rrow">
-            <img class="thumb" src="assets/covers/the-slip.webp" alt="" width="50" height="50" loading="lazy">
-            <span class="rrow-text"><b>The Slip</b><span class="rrow-meta">Nine Inch Nails · Album · 2008</span></span>
-            <svg class="rrow-mark is-held" role="img" aria-label="On your server"><use href="#i-held"/></svg>
-          </li>
-          <li class="rrow">
-            <img class="thumb" src="assets/covers/polish-ambassador.webp" alt="" width="50" height="50" loading="lazy">
-            <span class="rrow-text"><b>Pushing Through The Pavement</b><span class="rrow-meta">The Polish Ambassador · Album · 2014</span></span>
-          </li>
-          <li class="rrow">
-            <img class="thumb" src="assets/covers/brad-sucks.webp" alt="" width="50" height="50" loading="lazy">
-            <span class="rrow-text"><b>I Don’t Know What I’m Doing</b><span class="rrow-meta">Brad Sucks · Album · 2003</span></span>
-            <svg class="rrow-mark is-held" role="img" aria-label="On your server"><use href="#i-held"/></svg>
+            <img class="thumb" src="assets/covers/radar-3.webp" alt="" width="50" height="50" loading="lazy">
+            <span class="rrow-text"><b>don’t let go til you hate me</b><span class="rrow-meta">Zeph · Single · Sept 25</span></span>
           </li>
         </ol>
         <p class="rrow-legend"><span><svg class="is-held" aria-hidden="true"><use href="#i-held"/></svg>On your server</span><span><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Playing a thirty-second preview</span></p>
@@ -190,75 +175,45 @@
         <div class="marquee" data-loop>
           <ul class="marquee-track">
             <li class="mfy-item">
-              <div class="cover cover-mix" style="--band: #F7E11B" aria-hidden="true"><div class="cv">
-                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">New Releases</span></span>
-                <span class="cv-foot"><span class="cap title-band">Radar</span><span class="cap strip">Natasha Beller · Nine Inch Nails</span></span>
-              </div></div>
+              <div class="cover"><img src="assets/covers/mix-radar.webp" width="440" height="440" alt="A Radar cover drawn by Aura: Zaoui holding roses in his teeth, the name in a band, Zaoui, M83 and Sky McCreery beneath" loading="lazy"></div>
               <b>Radar</b><span>New releases from your artists</span>
             </li>
             <li class="mfy-item">
-              <div class="cover cover-mix" style="--band: #FF7A1A" aria-hidden="true"><div class="cv">
-                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
-                <span class="cv-foot"><span class="cap title-band">Evening</span><span class="cap strip">Natasha Beller · Brad Sucks</span></span>
-              </div></div>
-              <b>Evening Mix</b><span>Wind down your evening</span>
+              <div class="cover"><img src="assets/covers/mix-afternoon.webp" width="440" height="440" alt="An Afternoon Mix cover drawn by Aura: a portrait of Avicii, the name in a band, Avicii, Phats & Small and Rules beneath" loading="lazy"></div>
+              <b>Afternoon Mix</b><span>Songs for your afternoon</span>
             </li>
             <li class="mfy-item">
-              <div class="cover cover-mix" style="--band: #6FF0C4" aria-hidden="true"><div class="cv">
-                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
-                <span class="cv-foot"><span class="cap title-band">Chill</span><span class="cap strip">The Polish Ambassador</span></span>
-              </div></div>
-              <b>Chill Mix</b><span>Calm, laid-back songs</span>
+              <div class="cover"><img src="assets/covers/mix-focus.webp" width="440" height="440" alt="A Focus Mix cover drawn by Aura: Fat Larry’s Band in striped shirts on red, Fat Larry’s Band and Naâman beneath" loading="lazy"></div>
+              <b>Focus Mix</b><span>Steady songs to concentrate</span>
             </li>
             <li class="mfy-item">
-              <div class="cover cover-genre" style="--dark: #1A1150; --light: #FF6FB5" aria-hidden="true"><div class="cv">
-                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
-                <span class="cv-foot"><span class="cap word">Soul</span><span class="cap word">Jazz</span></span>
-              </div></div>
-              <b>Soul Jazz Mix</b><span>Your soul jazz favorites</span>
+              <div class="cover"><img src="assets/covers/mix-feelgood.webp" width="440" height="440" alt="A Feel Good Mix cover drawn by Aura: a black and white artwork, Lauv and The Frights beneath" loading="lazy"></div>
+              <b>Feel Good Mix</b><span>Upbeat songs to lift your mood</span>
             </li>
             <li class="mfy-item">
-              <div class="cover cover-year" aria-hidden="true"><div class="cv">
-                <span class="cap period">2025</span>
-                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Wrapped</span></span>
-              </div></div>
-              <b>Your 2025 Wrapped</b><span>Your top songs, artists &amp; genres</span>
+              <div class="cover"><img src="assets/covers/wrapped-september.webp" width="440" height="440" alt="The Wrapped icon" loading="lazy"></div>
+              <b>Your September 2026 Wrapped</b><span>Your top songs, artists &amp; genres</span>
             </li>
             <!-- the same five again, so the loop joins without a gap; hidden from assistive tech -->
             <li class="mfy-item is-copy" aria-hidden="true">
-              <div class="cover cover-mix" style="--band: #F7E11B" aria-hidden="true"><div class="cv">
-                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">New Releases</span></span>
-                <span class="cv-foot"><span class="cap title-band">Radar</span><span class="cap strip">Natasha Beller · Nine Inch Nails</span></span>
-              </div></div>
+              <div class="cover"><img src="assets/covers/mix-radar.webp" width="440" height="440" alt="" loading="lazy"></div>
               <b>Radar</b><span>New releases from your artists</span>
             </li>
             <li class="mfy-item is-copy" aria-hidden="true">
-              <div class="cover cover-mix" style="--band: #FF7A1A" aria-hidden="true"><div class="cv">
-                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
-                <span class="cv-foot"><span class="cap title-band">Evening</span><span class="cap strip">Natasha Beller · Brad Sucks</span></span>
-              </div></div>
-              <b>Evening Mix</b><span>Wind down your evening</span>
+              <div class="cover"><img src="assets/covers/mix-afternoon.webp" width="440" height="440" alt="" loading="lazy"></div>
+              <b>Afternoon Mix</b><span>Songs for your afternoon</span>
             </li>
             <li class="mfy-item is-copy" aria-hidden="true">
-              <div class="cover cover-mix" style="--band: #6FF0C4" aria-hidden="true"><div class="cv">
-                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
-                <span class="cv-foot"><span class="cap title-band">Chill</span><span class="cap strip">The Polish Ambassador</span></span>
-              </div></div>
-              <b>Chill Mix</b><span>Calm, laid-back songs</span>
+              <div class="cover"><img src="assets/covers/mix-focus.webp" width="440" height="440" alt="" loading="lazy"></div>
+              <b>Focus Mix</b><span>Steady songs to concentrate</span>
             </li>
             <li class="mfy-item is-copy" aria-hidden="true">
-              <div class="cover cover-genre" style="--dark: #1A1150; --light: #FF6FB5" aria-hidden="true"><div class="cv">
-                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Mix</span></span>
-                <span class="cv-foot"><span class="cap word">Soul</span><span class="cap word">Jazz</span></span>
-              </div></div>
-              <b>Soul Jazz Mix</b><span>Your soul jazz favorites</span>
+              <div class="cover"><img src="assets/covers/mix-feelgood.webp" width="440" height="440" alt="" loading="lazy"></div>
+              <b>Feel Good Mix</b><span>Upbeat songs to lift your mood</span>
             </li>
             <li class="mfy-item is-copy" aria-hidden="true">
-              <div class="cover cover-year" aria-hidden="true"><div class="cv">
-                <span class="cap period">2025</span>
-                <span class="lockup"><svg class="mark"><use href="#play-mark"/></svg><span class="cap">Wrapped</span></span>
-              </div></div>
-              <b>Your 2025 Wrapped</b><span>Your top songs, artists &amp; genres</span>
+              <div class="cover"><img src="assets/covers/wrapped-september.webp" width="440" height="440" alt="" loading="lazy"></div>
+              <b>Your September 2026 Wrapped</b><span>Your top songs, artists &amp; genres</span>
             </li>
           </ul>
         </div>
@@ -369,7 +324,6 @@
     </nav>
     <span>Not affiliated with Navidrome, Subsonic or Apple.</span>
   </div>
-  <p class="credits">Album art and artist names in the demos: freely licensed releases from the Navidrome demo library, under Creative Commons — <a href="https://en.wikipedia.org/wiki/The_Slip_(album)">Nine Inch Nails, <i>The Slip</i> (BY-NC-SA 3.0 US)</a>, <a href="https://archive.org/details/jamendo-003798">Brad Sucks, <i>I Don’t Know What I’m Doing</i> (BY-NC-SA 2.5)</a>, <a href="https://archive.org/details/jamendo-136167">The Polish Ambassador, <i>Pushing Through The Pavement</i> (BY-NC-SA 3.0)</a>, <a href="https://blocsonic.com/releases/natasha-beller/fairytale/">Natasha Beller, <i>Fairytale</i> (BY-NC-SA 4.0)</a>. Covers resized.</p>
 </footer>
 
 <dialog class="sheet" id="install" aria-labelledby="install-title">

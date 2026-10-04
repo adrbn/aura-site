@@ -7,22 +7,6 @@
   font-weight: 400;
   font-display: swap;
 }
-/* Archivo (OFL, fonts/Archivo-OFL.txt) : la typo des pochettes de l'app, et elle seule. */
-@font-face {
-  font-family: "Archivo XCond Black";
-  src: url("fonts/ArchivoXCondBlack.woff2") format("woff2");
-  font-display: block;
-}
-@font-face {
-  font-family: "Archivo Exp Black";
-  src: url("fonts/ArchivoExpBlack.woff2") format("woff2");
-  font-display: block;
-}
-@font-face {
-  font-family: "Archivo Exp Bold";
-  src: url("fonts/ArchivoExpBold.woff2") format("woff2");
-  font-display: block;
-}
 
 :root {
   /* une teinte : 355°, celle du triangle de l'icône */
@@ -51,9 +35,6 @@
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
                "Segoe UI", Roboto, sans-serif;
   --font-emph: "Vavin", "New York", "Iowan Old Style", Georgia, serif;
-  --cover-title: "Archivo XCond Black", "Arial Narrow", sans-serif;
-  --cover-wide: "Archivo Exp Black", "Arial Black", sans-serif;
-  --cover-label: "Archivo Exp Bold", Arial, sans-serif;
   --track: -0.02em;
 
   --page-gutter: 60px;
@@ -303,78 +284,9 @@ button { font: inherit; color: inherit; }
   .card-radio .cover { width: min(100%, 300px); margin-inline: auto; }
 }
 
-/* ---------- pochettes : le système de l'app (CoverKit.swift), en unités de conteneur ----------
-   Côté s = 100cqw. Marge 6cqw, titres en Archivo Extra Condensed Black posés sur leur hauteur de capitale. */
-.cover { position: relative; aspect-ratio: 1; container-type: inline-size; border-radius: 7%; overflow: hidden; isolation: isolate; font-synthesis: none; }
-.cv { position: absolute; inset: 0; }
-.cap { display: block; font-weight: 400; line-height: .686; white-space: nowrap; text-transform: uppercase; }
-@supports (text-box: trim-both cap alphabetic) {
-  .cap { line-height: 1; text-box: trim-both cap alphabetic; }
-}
-@supports not (text-box: trim-both cap alphabetic) {
-  .cap { position: relative; top: .009em; } /* (capitale − ascendante + descendante) / 2 */
-}
-.lockup { position: absolute; top: 6cqw; left: 6cqw; display: flex; align-items: center; gap: 1.73cqw; color: #fff; }
-.lockup .mark { flex: none; width: 3.31cqw; height: 3.75cqw; fill: #ff3b54; }
-.lockup .cap { font-family: var(--cover-wide); font-size: 4.2cqw; letter-spacing: .06em; }
-.cv-foot { position: absolute; left: 0; bottom: 6cqw; display: flex; flex-direction: column; align-items: flex-start; }
-.title-band { padding: 3.2cqw 3.5cqw 3.2cqw 6cqw; background: #000; font-family: var(--cover-title); font-size: 21.87cqw; }
-.strip { margin-left: 6cqw; padding: 1.7cqw 2cqw; background: #000; color: #fff; font-family: var(--cover-label); font-size: 3.2cqw; letter-spacing: .2cqw; }
-
-/* mix sans photo : le champ prend la couleur de la bande, la bande passe au noir */
-.cover-mix .cv { background: var(--band); }
-.cover-mix .lockup { color: #000; }
-.cover-mix .mark { fill: #000; }
-.cover-mix .title-band { color: var(--band); }
-
-/* genre : le duotone, les mots empilés */
-.cover-genre .cv { background: var(--dark); }
-.cover-genre .lockup { color: var(--light); }
-.cover-genre .mark { fill: var(--light); }
-.cover-genre .cv-foot { left: 6cqw; gap: 3cqw; }
-.cover-genre .word { font-family: var(--cover-title); font-size: 43.73cqw; color: var(--light); }
-
-/* Wrapped : l'année remplit la colonne (88cqw), sous la ligne du lockup */
-.cover-year .cv { background: linear-gradient(to bottom right, #ff6b2c, #c2185b, #311b92); }
-.cover-year .period { position: absolute; left: 6cqw; top: 13.25cqw; font-family: var(--cover-title); font-size: 50.72cqw; color: #fff; }
-.cover-year .mark { fill: #fff; }
-
-/* radio : le disque de l'artiste de départ émet des anneaux */
-.cover-radio { --field: #3dcbff; --field-deep: #2b8eb3; --field-disc: #33abd6; }
-.cover-radio .cv { background: radial-gradient(circle 90cqw at 50% 40%, var(--field) 0 42%, var(--field-deep) 100%); }
-.cover-radio .lockup { color: #000; }
-.cover-radio .title-band { color: var(--field); font-size: 20.41cqw; } /* capitale ≤ 0,14 s, comme l'app */
-.cover-radio .strip { background: #fff; color: #000; }
-.rings { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.ring {
-  fill: none; stroke: rgb(0 0 0 / .16); stroke-width: max(.5px, .5cqw); vector-effect: non-scaling-stroke;
-  transform-box: view-box; transform-origin: 50px 40px;
-  transform: scale(var(--s)); opacity: var(--o);
-  animation: broadcast 14.4s linear infinite;
-}
-/* six anneaux espacés de 0,12 s, chacun décalé d'un pas de 2,4 s ; --s et --o : la pose fixe */
-.ring:nth-child(1) { --s: .28; --o: 1; }
-.ring:nth-child(2) { --s: .40; --o: 1; animation-delay: -2.4s; }
-.ring:nth-child(3) { --s: .52; --o: 1; animation-delay: -4.8s; }
-.ring:nth-child(4) { --s: .64; --o: 1; animation-delay: -7.2s; }
-.ring:nth-child(5) { --s: .76; --o: .76; animation-delay: -9.6s; }
-.ring:nth-child(6) { --s: .88; --o: .28; animation-delay: -12s; }
-@keyframes broadcast {
-  0% { transform: scale(.28); opacity: 1; }
-  58.33% { opacity: 1; }
-  93.06% { opacity: 0; }
-  100% { transform: scale(1); opacity: 0; }
-}
-.disc { position: absolute; overflow: hidden; border-radius: 50%; background: var(--field-disc); box-shadow: 0 1.2cqw 3cqw rgb(0 0 0 / .28); }
-.disc svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.disc-left, .disc-right { width: 36cqw; height: 36cqw; fill: rgb(148 226 255 / .5); } /* les voisins, au ton du champ */
-.disc-left { left: -7cqw; top: 31cqw; }
-.disc-right { left: 70cqw; top: 7cqw; }
-.disc-lead {
-  left: 17.6cqw; top: 7.6cqw; width: 64.8cqw; height: 64.8cqw;
-  border: 1.4cqw solid var(--field);
-  fill: rgb(6 40 58 / .78);
-}
+/* ---------- pochettes : celles que l'app dessine, telles quelles ---------- */
+.cover { aspect-ratio: 1; border-radius: 7%; overflow: hidden; }
+.cover > img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- le reste, en texte seul ---------- */
 .also-title { font-size: clamp(30px, 3.2vw, 44px); }
@@ -465,9 +377,6 @@ button { font: inherit; color: inherit; }
 .footer-meta nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
 .footer-meta a { text-decoration: none; transition: color var(--dur-ui); }
 .footer-meta a:hover { color: var(--ink); }
-.credits { width: var(--site-width); margin: -28px auto 0; padding: 0 0 48px; color: var(--ink-2); font-size: 12px; line-height: 1.5; }
-.credits a { color: inherit; text-underline-offset: 2px; transition: color var(--dur-ui); }
-.credits a:hover { color: var(--ink); }
 
 /* ---------- feuille d'installation ---------- */
 .sheet { width: min(560px, 100% - 32px); max-height: min(88vh, 760px); padding: 0; border: 0; border-radius: 32px; background: var(--surface); color: var(--ink); box-shadow: 0 24px 80px rgb(0 0 0 / .5); }
@@ -505,7 +414,7 @@ button { font: inherit; color: inherit; }
   .js .lyric-line { filter: none; transform: none; }
   .js .wordmark { transition: none; background-position: 0 0; }
   .sheet[open] { animation: none; }
-  .ring, .bars i, .marquee-track { animation: none; }
+  .bars i, .marquee-track { animation: none; }
   .bars i:nth-child(1) { transform: scaleY(.55); }
   .bars i:nth-child(3) { transform: scaleY(.75); }
   .eq-dot { transition: none; }
