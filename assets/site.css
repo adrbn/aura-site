@@ -98,6 +98,9 @@ button { font: inherit; color: inherit; }
 .icon-link svg { width: 22px; height: 22px; }
 .nav.on-light .btn-primary { background: var(--l-ink); color: var(--l-bg); }
 .nav.on-light .btn-primary:hover { background: var(--accent); color: var(--on-accent); }
+.nav.on-light .btn-secondary { background: color-mix(in srgb, var(--l-ink) 8%, transparent); color: var(--l-ink); }
+.nav-actions .btn-secondary { margin-right: -12px; }
+@media (max-width: 430px) { .nav-label { display: none; } .nav-actions .btn-secondary { padding: 0 12px; } }
 
 /* ---------- boutons ---------- */
 .btn {
@@ -134,6 +137,7 @@ button { font: inherit; color: inherit; }
 .js .lyric-h1.is-waiting .line.is-next { transform: scale(.94); filter: blur(3px); opacity: .55; }
 .lead { max-width: 33em; margin: 26px 0 0; color: var(--ink-2); font-size: clamp(17px, 1.45vw, 20px); font-weight: 500; line-height: 1.4; }
 .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 36px; }
+.actions-sub { margin-top: 14px; }
 .fineprint { margin: 18px 0 0; color: var(--ink-2); font-size: 15px; font-weight: 500; letter-spacing: -0.02em; }
 
 .stage { --pw: clamp(190px, 21vw, 300px); display: flex; justify-content: center; align-items: center; gap: clamp(18px, 3vw, 44px); margin-top: 88px; width: 100%; }
@@ -142,6 +146,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 700px) {
   .hero { padding: 56px 0 80px; }
   .actions { gap: 10px; margin-top: 26px; }
+  .actions-sub { margin-top: 10px; }
   .stage { --pw: min(72vw, 300px); margin-top: 56px; }
   .stage .phone.side { display: none; }
 }
