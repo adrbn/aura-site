@@ -115,8 +115,8 @@ button { font: inherit; color: inherit; }
 .btn-secondary:hover { background: #3a3030; }
 .btn-sm { height: 38px; min-width: 0; padding: 0 18px; font-size: 15px; gap: 7px; }
 .btn-sm svg { width: 13px; height: 13px; }
-.btn-ghost { background: var(--ink); color: var(--bg); }
-.btn-ghost:hover { background: var(--accent); color: var(--on-accent); }
+.btn-ghost { background: transparent; color: var(--ink-2); }
+.btn-ghost:hover { color: var(--ink); }
 .btn-ghost svg { width: 16px; height: 16px; }
 .is-soon { pointer-events: none; } /* pas encore de lien : l’app attend sa sortie sur l’App Store */
 @media (max-width: 700px) {
