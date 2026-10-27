@@ -115,9 +115,11 @@ button { font: inherit; color: inherit; }
 .btn-secondary:hover { background: #3a3030; }
 .btn-sm { height: 38px; min-width: 0; padding: 0 18px; font-size: 15px; gap: 7px; }
 .btn-sm svg { width: 13px; height: 13px; }
-.btn-ghost { background: transparent; color: var(--ink-2); }
-.btn-ghost:hover { color: var(--ink); }
-.btn-ghost svg { width: 16px; height: 16px; }
+.btn-ghost { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--ink);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent); }
+.btn-ghost:hover { background: var(--accent); color: var(--on-accent); }
+.btn-ghost svg { width: 16px; height: 16px; color: var(--accent); transition: color var(--dur-ui); }
+.btn-ghost:hover svg { color: currentColor; }
 .is-soon { pointer-events: none; } /* pas encore de lien : l’app attend sa sortie sur l’App Store */
 @media (max-width: 700px) {
   .btn:not(.btn-sm) { height: 46px; min-width: 0; padding: 0 20px; font-size: 16px; gap: 8px; }
