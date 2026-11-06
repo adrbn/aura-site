@@ -430,3 +430,7 @@ button { font: inherit; color: inherit; }
   .marquee { overflow-x: auto; padding-inline: var(--pad-card); -webkit-mask-image: none; mask-image: none; scrollbar-width: thin; }
   .mfy-item.is-copy { display: none; }
 }
+
+/* No visible scrollbar: the page still scrolls by wheel, trackpad, touch and keys. */
+html { scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
