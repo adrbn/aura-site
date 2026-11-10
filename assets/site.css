@@ -434,3 +434,8 @@ button { font: inherit; color: inherit; }
 /* No visible scrollbar: the page still scrolls by wheel, trackpad, touch and keys. */
 html { scrollbar-width: none; }
 html::-webkit-scrollbar { display: none; }
+
+/* Proof, not an action: a quiet line under the fine print, lit on hover. */
+.listed { display: inline-flex; align-items: center; gap: 7px; margin-top: 10px; font-size: 14px; font-weight: 500; color: var(--ink-2); text-decoration: none; }
+.listed svg { width: 14px; height: 14px; flex: none; }
+.listed:hover { color: var(--ink); }
