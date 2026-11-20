@@ -298,11 +298,12 @@ button { font: inherit; color: inherit; }
 
 /* ---------- le reste, en texte seul ---------- */
 .also-title { font-size: clamp(30px, 3.2vw, 44px); }
-.also { list-style: none; margin: 44px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 48px; }
+.also { list-style: none; margin: 44px 0 0; padding: 0; columns: 3; column-gap: 48px; }
+.also li { break-inside: avoid; padding-bottom: 40px; }
 .also b { display: block; font-size: 19px; font-weight: 700; letter-spacing: var(--track); line-height: 1.15; }
 .also span { display: block; margin-top: 8px; color: var(--ink-2); font-size: 16px; line-height: 1.45; max-width: 26em; }
-@media (max-width: 900px) { .also { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .also { grid-template-columns: 1fr; gap: 28px; } }
+@media (max-width: 900px) { .also { columns: 2; } }
+@media (max-width: 560px) { .also { columns: 1; } .also li { padding-bottom: 28px; } }
 
 /* ---------- paroles : la section noire ---------- */
 .lyrics { background: var(--black); margin-top: 160px; padding: 150px 0 40px; }
