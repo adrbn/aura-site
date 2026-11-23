@@ -462,13 +462,13 @@ html::-webkit-scrollbar { display: none; }
 .reviews-section .fineprint a:hover { color: var(--accent); }
 
 /* ---------- hero : un vrai avis, et le café ---------- */
-.hero-review { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 30px; padding: 18px 26px 16px; border-radius: 22px; background: var(--surface); color: var(--ink); text-decoration: none; transition: background .2s ease-out; }
-.hero-review:hover { background: color-mix(in srgb, var(--surface) 80%, var(--ink) 6%); }
-.hero-review-top { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; }
-.hero-review .stars { color: var(--accent); letter-spacing: .1em; font-size: 15px; }
+.hero-review { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 26px; color: var(--ink); text-decoration: none; }
+.hero-review .stars { color: var(--accent); font-size: 24px; letter-spacing: .14em; }
 .hero-review q { font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
-.hero-review-by { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 13px; font-weight: 500; }
-.hero-review-by svg { width: 12px; height: 12px; }
-.hero-tip { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; color: var(--ink); font-size: 14px; font-weight: 600; text-decoration: none; }
-.hero-tip svg { width: 20px; height: 20px; flex: none; }
-.hero-tip:hover { text-decoration: underline; text-underline-offset: 3px; }
+.hero-review-by { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); font-size: 14px; font-weight: 500; }
+.hero-review-by svg { width: 13px; height: 13px; }
+.hero-review:hover q { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.hero-tip { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; height: 38px; padding: 0 16px 0 12px; border-radius: 999px; background: #fff; color: #1a1414; font-size: 14px; font-weight: 600; text-decoration: none; transition: transform .15s ease-out; }
+.hero-tip svg { width: 22px; height: 22px; flex: none; }
+.hero-tip:hover { transform: translateY(-1px); }
+.hero-tip:active { transform: scale(.97); }
