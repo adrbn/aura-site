@@ -349,8 +349,8 @@
   const MIN_RATING = 4;
   // Ce qu'un avis demandait et qu'Aura fait depuis, par pseudo de l'auteur.
   const SINCE = {
-    tj3t3r: ["Feature added", "Sort by artist, in 1.5.1"],
-    LuckyRUS38: ["Already in Aura", "CarPlay"],
+    tj3t3r: ["Sort by artist", "Added in 1.5.1"],
+    LuckyRUS38: ["CarPlay", "Already in Aura"],
   };
   const STOREFRONTS = ["us", "gb", "ca", "au", "de", "fr", "it", "es", "nl", "be", "ch", "at", "se",
     "no", "dk", "fi", "pl", "cz", "pt", "br", "mx", "ie", "nz", "tr", "jp", "kr", "in", "ru", "ua"];
@@ -369,12 +369,19 @@
     });
 
   const line = (cls, text) => { const p = document.createElement("p"); p.className = cls; p.textContent = text; return p; };
-  const note = (label, detail) => {
-    const p = line("review-note", ` ${detail}`);
+  const note = (feature, status) => {
+    const div = document.createElement("div");
+    div.className = "review-note";
+    const mark = document.createElement("span");
+    mark.className = "review-note-mark"; mark.setAttribute("aria-hidden", "true"); mark.textContent = "✓";
+    const text = document.createElement("p");
     const b = document.createElement("strong");
-    b.textContent = label;
-    p.prepend(b);
-    return p;
+    b.textContent = feature;
+    const sub = document.createElement("span");
+    sub.textContent = status;
+    text.append(b, sub);
+    div.append(mark, text);
+    return div;
   };
   const card = (r) => {
     const li = document.createElement("li");
