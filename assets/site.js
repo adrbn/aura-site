@@ -336,3 +336,62 @@
   window.visualViewport?.addEventListener("resize", onResize);
   onScroll();
 })();
+
+// ---------- avis App Store, en direct ----------
+// Les flux publics d'Apple répondent avec CORS ouvert : chaque visite lit les avis de chaque
+// vitrine, sans serveur. Les deux avis écrits dans le HTML restent si rien ne répond.
+(() => {
+  "use strict";
+  const list = document.getElementById("reviews-list");
+  const score = document.getElementById("reviews-score");
+  if (!list || !window.fetch) return;
+  const APP = "6818241470";
+  const MIN_RATING = 5;
+  const STOREFRONTS = ["us", "gb", "ca", "au", "de", "fr", "it", "es", "nl", "be", "ch", "at", "se",
+    "no", "dk", "fi", "pl", "cz", "pt", "br", "mx", "ie", "nz", "tr", "jp", "kr", "in", "ru", "ua"];
+  const names = new Intl.DisplayNames(["en"], { type: "region" });
+  const month = new Intl.DateTimeFormat("en", { month: "short", year: "numeric" });
+  const json = (url) => fetch(url).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+
+  const reviewsFrom = (cc) => json(`https://itunes.apple.com/${cc}/rss/customerreviews/page=1/id=${APP}/sortby=mostrecent/json`)
+    .then((d) => {
+      const e = d?.feed?.entry;
+      return (Array.isArray(e) ? e : e ? [e] : []).map((x) => ({
+        id: x.id?.label, cc,
+        rating: Number(x["im:rating"]?.label), title: x.title?.label ?? "", body: x.content?.label ?? "",
+        author: x.author?.name?.label ?? "", date: new Date(x.updated?.label),
+      }));
+    });
+
+  const line = (cls, text) => { const p = document.createElement("p"); p.className = cls; p.textContent = text; return p; };
+  const card = (r) => {
+    const li = document.createElement("li");
+    li.className = "review";
+    const stars = line("review-stars", "★".repeat(r.rating));
+    stars.setAttribute("aria-label", `${r.rating} stars`);
+    li.append(stars, line("review-title", r.title), line("review-body", r.body.replace(/\s+/g, " ").trim()),
+      line("review-by", [r.author, names.of(r.cc.toUpperCase()), isNaN(r.date) ? "" : month.format(r.date)].filter(Boolean).join(" · ")));
+    return li;
+  };
+
+  Promise.all(STOREFRONTS.map(reviewsFrom)).then((all) => {
+    const seen = new Set();
+    const shown = all.flat()
+      .filter((r) => r.rating >= MIN_RATING && r.body && !seen.has(r.id) && seen.add(r.id))
+      .sort((a, b) => b.date - a.date)
+      .slice(0, 9);
+    if (shown.length) list.replaceChildren(...shown.map(card));
+  });
+
+  // La note moyenne de la vitrine américaine, la seule qui en ait assez pour la donner.
+  json(`https://itunes.apple.com/lookup?id=${APP}&country=us`).then((d) => {
+    const app = d?.results?.[0];
+    if (!score || !app?.averageUserRating) return;
+    const avg = app.averageUserRating;
+    score.innerHTML = "";
+    const stars = document.createElement("span");
+    stars.className = "stars"; stars.setAttribute("aria-hidden", "true");
+    stars.textContent = "★".repeat(Math.round(avg)) + "☆".repeat(5 - Math.round(avg));
+    score.append(stars, ` ${avg.toFixed(1)} out of 5`);
+  });
+})();
