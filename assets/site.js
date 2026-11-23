@@ -346,7 +346,12 @@
   const score = document.getElementById("reviews-score");
   if (!list || !window.fetch) return;
   const APP = "6818241470";
-  const MIN_RATING = 5;
+  const MIN_RATING = 4;
+  // Ce qu'un avis demandait et qu'Aura fait depuis, par pseudo de l'auteur.
+  const SINCE = {
+    tj3t3r: ["Feature added", "Sort by artist, in 1.5.1"],
+    LuckyRUS38: ["Already in Aura", "CarPlay"],
+  };
   const STOREFRONTS = ["us", "gb", "ca", "au", "de", "fr", "it", "es", "nl", "be", "ch", "at", "se",
     "no", "dk", "fi", "pl", "cz", "pt", "br", "mx", "ie", "nz", "tr", "jp", "kr", "in", "ru", "ua"];
   const names = new Intl.DisplayNames(["en"], { type: "region" });
@@ -364,12 +369,20 @@
     });
 
   const line = (cls, text) => { const p = document.createElement("p"); p.className = cls; p.textContent = text; return p; };
+  const note = (label, detail) => {
+    const p = line("review-note", ` ${detail}`);
+    const b = document.createElement("strong");
+    b.textContent = label;
+    p.prepend(b);
+    return p;
+  };
   const card = (r) => {
     const li = document.createElement("li");
     li.className = "review";
     const stars = line("review-stars", "★".repeat(r.rating));
     stars.setAttribute("aria-label", `${r.rating} stars`);
     li.append(stars, line("review-title", r.title), line("review-body", r.body.replace(/\s+/g, " ").trim()),
+      ...(SINCE[r.author] ? [note(...SINCE[r.author])] : []),
       line("review-by", [r.author, names.of(r.cc.toUpperCase()), isNaN(r.date) ? "" : month.format(r.date)].filter(Boolean).join(" · ")));
     return li;
   };

@@ -451,6 +451,8 @@ html::-webkit-scrollbar { display: none; }
 .review-stars { font-size: 15px; }
 .review-title { font-size: 21px; font-weight: 700; line-height: 1.15; letter-spacing: var(--track); text-wrap: balance; }
 .review-body { color: var(--ink-2); font-size: 16px; font-weight: 500; line-height: 1.45; overflow-wrap: anywhere; }
+.review-note { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--ink-2); font-size: 14px; font-weight: 500; }
+.review-note strong { padding: 4px 10px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-size: 13px; font-weight: 700; }
 .review-by { margin-top: auto !important; padding-top: 6px; color: var(--ink-2); font-size: 14px; font-weight: 500; }
 .reviews-section .fineprint a { color: inherit; }
 .reviews-section .fineprint a:hover { color: var(--accent); }
